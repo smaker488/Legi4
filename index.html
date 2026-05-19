@@ -1,0 +1,3074 @@
+<!DOCTYPE html>
+<html lang="ka">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ლეგი — ავეჯი ინდივიდუალური დიზაინით</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Georgian:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ════════════════════════════════════════
+   LEGI DESIGN SYSTEM — BRIGHT & PREMIUM
+════════════════════════════════════════ */
+:root {
+  --white:     #ffffff;
+  --bg:        #f8f6f2;
+  --bg2:       #f0ece4;
+  --card:      #ffffff;
+  --border:    #e8e2d8;
+  --text:      #1a1510;
+  --text2:     #5a5040;
+  --muted:     #9a8e7e;
+  --accent:    #2563eb;
+  --accent2:   #3b82f6;
+  --gold:      #c8961e;
+  --green:     #3a8a5a;
+  --shadow-sm: 0 2px 12px rgba(0,0,0,0.08);
+  --shadow-md: 0 8px 32px rgba(0,0,0,0.12);
+  --shadow-lg: 0 20px 60px rgba(0,0,0,0.15);
+  --radius:    14px;
+  --radius-lg: 20px;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{
+  font-family:'Noto Sans Georgian','Georgia',sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+  line-height:1.6;
+}
+/* ── SCROLLBAR ── */
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:var(--bg);}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+
+/* ════════════════════════════════════════
+   NAVIGATION
+════════════════════════════════════════ */
+nav{
+  position:fixed;top:0;left:0;right:0;z-index:1000;
+  background:rgba(255,255,255,0.95);
+  backdrop-filter:blur(20px);
+  border-bottom:1px solid var(--border);
+  padding:0 5%;
+  height:68px;
+  display:flex;align-items:center;justify-content:space-between;
+  box-shadow:var(--shadow-sm);
+}
+.nav-logo{
+  display:flex;align-items:center;gap:12px;
+  text-decoration:none;
+}
+.nav-logo-icon{
+  width:42px;height:42px;border-radius:10px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;font-weight:700;color:#fff;
+  letter-spacing:-1px;
+  box-shadow:0 4px 16px rgba(232,101,10,0.35);
+}
+.nav-logo-text{
+  font-size:22px;font-weight:700;color:var(--text);
+  letter-spacing:-0.5px;
+}
+.nav-logo-text span{color:var(--accent);}
+.nav-links{display:flex;gap:8px;align-items:center;}
+.nav-links a{
+  font-size:13px;color:var(--text2);text-decoration:none;
+  padding:7px 14px;border-radius:8px;
+  transition:background .2s,color .2s;font-weight:500;
+}
+.nav-links a:hover{background:var(--bg2);color:var(--text);}
+.nav-cta{
+  background:var(--accent);color:#fff;
+  padding:9px 22px;border-radius:10px;
+  font-size:13px;font-weight:600;text-decoration:none;
+  transition:background .2s,transform .15s,box-shadow .2s;
+  box-shadow:0 4px 16px rgba(232,101,10,0.3);
+  border:none;cursor:pointer;font-family:inherit;
+}
+.nav-cta:hover{background:var(--accent2);transform:translateY(-1px);box-shadow:0 6px 20px rgba(232,101,10,0.4);}
+.nav-burger{display:none;flex-direction:column;gap:4px;cursor:pointer;padding:8px;}
+.nav-burger span{display:block;width:22px;height:2px;background:var(--text);border-radius:2px;}
+
+/* ════════════════════════════════════════
+   HERO SECTION
+════════════════════════════════════════ */
+.hero{
+  padding-top:68px;
+  min-height:100vh;
+  display:grid;grid-template-columns:1fr 1fr;
+  align-items:center;
+  gap:0;
+  overflow:hidden;
+}
+.hero-left{
+  padding:80px 5% 80px 8%;
+  animation:fadeUp .8s ease both;
+}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px);}to{opacity:1;transform:translateY(0);}}
+.hero-tag{
+  display:inline-flex;align-items:center;gap:7px;
+  background:rgba(232,101,10,0.1);border:1px solid rgba(232,101,10,0.2);
+  color:var(--accent);border-radius:30px;
+  padding:6px 16px;font-size:12px;font-weight:600;
+  margin-bottom:24px;letter-spacing:.3px;
+}
+.hero-tag .dot{width:6px;height:6px;border-radius:50%;background:var(--accent);animation:blink 1.5s infinite;}
+@keyframes blink{0%,100%{opacity:1;}50%{opacity:.3;}}
+.hero-h1{
+  font-size:clamp(36px,4.5vw,60px);
+  font-weight:700;line-height:1.1;
+  color:var(--text);margin-bottom:16px;
+  letter-spacing:-1px;
+}
+.hero-h1 span{
+  color:var(--accent);
+  position:relative;
+}
+.hero-h1 span::after{
+  content:'';position:absolute;bottom:-4px;left:0;right:0;
+  height:3px;background:linear-gradient(90deg,var(--accent),var(--accent2));
+  border-radius:2px;
+}
+.hero-sub{
+  font-size:16px;color:var(--text2);max-width:440px;
+  line-height:1.8;margin-bottom:36px;
+}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap;}
+.btn-primary{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:#fff;padding:14px 32px;border-radius:12px;
+  font-size:15px;font-weight:600;text-decoration:none;border:none;cursor:pointer;
+  font-family:inherit;transition:transform .2s,box-shadow .2s;
+  box-shadow:0 6px 24px rgba(232,101,10,0.35);
+  display:inline-flex;align-items:center;gap:8px;
+}
+.btn-primary:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(232,101,10,0.45);}
+.btn-outline{
+  background:transparent;border:2px solid var(--border);
+  color:var(--text);padding:13px 28px;border-radius:12px;
+  font-size:15px;font-weight:500;text-decoration:none;cursor:pointer;
+  font-family:inherit;transition:border-color .2s,background .2s;
+  display:inline-flex;align-items:center;gap:8px;
+}
+.btn-outline:hover{border-color:var(--accent);background:rgba(232,101,10,0.04);}
+.hero-stats{
+  display:flex;gap:32px;margin-top:48px;padding-top:32px;
+  border-top:1px solid var(--border);
+}
+.stat-num{font-size:28px;font-weight:700;color:var(--accent);}
+.stat-lbl{font-size:12px;color:var(--muted);margin-top:2px;}
+.hero-right{
+  height:100vh;
+  background:linear-gradient(135deg,#fef6ee 0%,#fde8d0 50%,#f8d4b0 100%);
+  display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+  animation:fadeIn .8s ease .2s both;
+}
+@keyframes fadeIn{from{opacity:0;}to{opacity:1;}}
+.hero-canvas-wrap{
+  width:90%;height:80%;position:relative;
+}
+#heroCanvas{width:100%;height:100%;display:block;border-radius:var(--radius-lg);}
+.hero-float-card{
+  position:absolute;
+  background:white;border-radius:14px;
+  padding:14px 18px;box-shadow:var(--shadow-md);
+  animation:float 4s ease-in-out infinite;
+}
+@keyframes float{0%,100%{transform:translateY(0);}50%{transform:translateY(-8px);}}
+/* ════ BLUE/GREY DECORATIVE BACKGROUND ════ */
+body::before{
+  content:'';
+  position:fixed;inset:0;
+  background:
+    radial-gradient(ellipse 800px 600px at 10% 20%, rgba(37,99,235,0.06) 0%, transparent 70%),
+    radial-gradient(ellipse 600px 400px at 90% 80%, rgba(100,116,139,0.07) 0%, transparent 70%),
+    radial-gradient(ellipse 400px 300px at 50% 50%, rgba(59,130,246,0.04) 0%, transparent 60%);
+  pointer-events:none;z-index:0;
+}
+.section,.hero,.hero-band{position:relative;z-index:1;}
+
+/* side accent lines */
+body::after{
+  content:'';
+  position:fixed;top:0;left:0;width:4px;height:100%;
+  background:linear-gradient(180deg,#2563eb 0%,#3b82f6 40%,#94a3b8 80%,transparent 100%);
+  opacity:.35;pointer-events:none;z-index:2;
+}
+nav::after{
+  content:'';position:absolute;bottom:-1px;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,#2563eb,#3b82f6,#94a3b8,transparent);
+  opacity:.5;
+}
+
+/* ════ HERO 3D SHOWCASE SECTION ════ */
+.hero-showcase{
+  background:linear-gradient(135deg,#0f172a 0%,#1e293b 40%,#0f1a35 100%);
+  padding:70px 5%;
+  display:flex;flex-direction:column;align-items:center;
+  position:relative;overflow:hidden;
+  border-top:1px solid rgba(37,99,235,0.3);
+  border-bottom:1px solid rgba(37,99,235,0.3);
+}
+.hero-showcase::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 700px 400px at 50% 50%,rgba(37,99,235,0.15) 0%,transparent 70%),
+    radial-gradient(ellipse 300px 200px at 20% 80%,rgba(59,130,246,0.1) 0%,transparent 60%),
+    radial-gradient(ellipse 400px 250px at 80% 20%,rgba(100,116,139,0.1) 0%,transparent 60%);
+  pointer-events:none;
+}
+/* blue grid pattern */
+.hero-showcase::after{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(rgba(37,99,235,0.08) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(37,99,235,0.08) 1px,transparent 1px);
+  background-size:60px 60px;
+  pointer-events:none;opacity:.6;
+}
+.showcase-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  background:rgba(37,99,235,0.15);border:1px solid rgba(37,99,235,0.4);
+  color:#93c5fd;border-radius:30px;padding:6px 18px;
+  font-size:12px;font-weight:600;letter-spacing:1px;
+  margin-bottom:20px;position:relative;z-index:1;
+}
+.showcase-title{
+  font-size:clamp(24px,3vw,42px);font-weight:700;
+  color:#f1f5f9;text-align:center;margin-bottom:10px;
+  position:relative;z-index:1;letter-spacing:-0.5px;
+}
+.showcase-title span{
+  color:#60a5fa;
+  background:linear-gradient(135deg,#60a5fa,#93c5fd);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+}
+.showcase-sub{
+  font-size:14px;color:#94a3b8;text-align:center;
+  margin-bottom:40px;position:relative;z-index:1;
+}
+.showcase-canvas-wrap{
+  width:100%;max-width:900px;
+  background:rgba(15,23,42,0.8);
+  border-radius:20px;
+  border:1px solid rgba(37,99,235,0.25);
+  overflow:hidden;
+  box-shadow:0 0 0 1px rgba(37,99,235,0.1),0 24px 80px rgba(0,0,0,0.6);
+  position:relative;z-index:1;
+}
+.showcase-canvas-header{
+  padding:12px 18px;
+  background:rgba(37,99,235,0.1);
+  border-bottom:1px solid rgba(37,99,235,0.2);
+  display:flex;align-items:center;gap:8px;
+}
+.sc-dots{display:flex;gap:6px;}
+.sc-dot{width:10px;height:10px;border-radius:50%;}
+.sc-dot:nth-child(1){background:#ef4444;}
+.sc-dot:nth-child(2){background:#f59e0b;}
+.sc-dot:nth-child(3){background:#22c55e;}
+.sc-label{font-size:12px;color:#64748b;margin-left:8px;letter-spacing:.5px;}
+.sc-live{display:flex;align-items:center;gap:5px;font-size:11px;color:#60a5fa;margin-left:auto;}
+.sc-live-dot{width:6px;height:6px;border-radius:50%;background:#60a5fa;animation:blink 2s infinite;}
+/* ════ GOLD COIN LOGO ════ */
+.coin-stage{
+  display:flex;flex-direction:column;align-items:center;
+  justify-content:center;padding:48px 20px 40px;
+  background:linear-gradient(180deg,#040812 0%,#07112a 50%,#040812 100%);
+  position:relative;overflow:hidden;
+}
+.coin-stage::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 500px 300px at 50% 40%,rgba(212,175,55,0.12),transparent 70%);
+}
+
+/* ring pulses */
+.coin-ring{
+  position:absolute;border-radius:50%;
+  border:1px solid rgba(212,175,55,0.2);
+  top:50%;left:50%;transform:translate(-50%,-58%);
+  animation:goldRing 4s ease-in-out infinite;
+}
+.coin-ring-1{width:280px;height:280px;animation-delay:0s;}
+.coin-ring-2{width:380px;height:380px;animation-delay:.9s;border-color:rgba(212,175,55,0.10);}
+.coin-ring-3{width:480px;height:480px;animation-delay:1.8s;border-color:rgba(212,175,55,0.05);}
+@keyframes goldRing{
+  0%,100%{opacity:.4;transform:translate(-50%,-58%) scale(1);}
+  50%{opacity:1;transform:translate(-50%,-58%) scale(1.04);}
+}
+
+/* coin container — 3D perspective */
+.coin-wrap{
+  perspective:800px;perspective-origin:50% 50%;
+  width:220px;height:220px;cursor:grab;
+}
+.coin-wrap:active{cursor:grabbing;}
+.coin-body{
+  width:220px;height:220px;
+  position:relative;transform-style:preserve-3d;
+  animation:coinSpin 10s linear infinite;
+}
+@keyframes coinSpin{
+  0%  {transform:rotateY(0deg)   rotateX(8deg);}
+  100%{transform:rotateY(360deg) rotateX(8deg);}
+}
+
+/* shared face styles */
+.coin-face{
+  position:absolute;width:220px;height:220px;
+  border-radius:50%;backface-visibility:hidden;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+
+/* FRONT face */
+.coin-front{
+  transform:translateZ(14px);
+  background:radial-gradient(circle at 35% 30%,#f9e98a,#d4af37 45%,#b8860b 75%,#8b6914 100%);
+  box-shadow:
+    0 0 0 4px #c9972a,
+    0 0 0 7px #f0c040,
+    0 0 0 9px #a07820,
+    0 0 40px rgba(212,175,55,0.6),
+    0 0 80px rgba(212,175,55,0.25);
+}
+/* edge rim on front */
+.coin-front::before{
+  content:'';position:absolute;inset:4px;border-radius:50%;
+  border:2px solid rgba(255,230,80,0.5);
+}
+/* reeded edge lines */
+.coin-front::after{
+  content:'';position:absolute;inset:0;border-radius:50%;
+  background:repeating-conic-gradient(
+    rgba(0,0,0,0.08) 0deg 3deg,
+    transparent 3deg 6deg
+  );
+}
+
+/* BACK face */
+.coin-back{
+  transform:rotateY(180deg) translateZ(14px);
+  background:radial-gradient(circle at 65% 70%,#f9e98a,#d4af37 45%,#b8860b 75%,#8b6914 100%);
+  box-shadow:
+    0 0 0 4px #c9972a,
+    0 0 0 7px #f0c040,
+    0 0 0 9px #a07820,
+    0 0 40px rgba(212,175,55,0.5);
+}
+.coin-back::before{
+  content:'';position:absolute;inset:4px;border-radius:50%;
+  border:2px solid rgba(255,230,80,0.5);
+}
+.coin-back::after{
+  content:'';position:absolute;inset:0;border-radius:50%;
+  background:repeating-conic-gradient(
+    rgba(0,0,0,0.08) 0deg 3deg,
+    transparent 3deg 6deg
+  );
+}
+
+/* EDGE (cylinder thickness) */
+.coin-edge{
+  position:absolute;
+  width:28px;height:220px;
+  left:96px;top:0;
+  transform:rotateY(90deg) translateZ(110px);
+  background:linear-gradient(180deg,
+    #8b6914 0%,#d4af37 15%,#f9e98a 30%,
+    #d4af37 45%,#8b6914 60%,#d4af37 75%,
+    #f9e98a 88%,#8b6914 100%);
+  backface-visibility:hidden;
+  border-radius:0 0 0 0;
+}
+
+/* front content */
+.coin-front-content{
+  position:relative;z-index:1;text-align:center;
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+}
+.coin-logo-text{
+  font-size:46px;font-weight:900;letter-spacing:-1px;
+  color:transparent;
+  background:linear-gradient(180deg,#fffacd,#c8a415 40%,#7a5c00 80%);
+  -webkit-background-clip:text;background-clip:text;
+  text-shadow:none;
+  filter:drop-shadow(0 2px 3px rgba(0,0,0,0.5));
+  line-height:1;
+}
+.coin-year{
+  font-size:11px;font-weight:700;letter-spacing:3px;
+  color:#7a5c00;text-transform:uppercase;
+}
+/* relief stars */
+.coin-stars{
+  display:flex;gap:8px;align-items:center;
+  color:#a07820;font-size:10px;letter-spacing:2px;
+}
+
+/* back content */
+.coin-back-content{
+  position:relative;z-index:1;text-align:center;padding:20px;
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+}
+.coin-geo-text{
+  font-size:20px;font-weight:800;
+  color:transparent;
+  background:linear-gradient(180deg,#fffacd,#c8a415 40%,#7a5c00 80%);
+  -webkit-background-clip:text;background-clip:text;
+  filter:drop-shadow(0 2px 3px rgba(0,0,0,0.5));
+}
+.coin-slogan{
+  font-size:10px;font-weight:600;letter-spacing:1px;line-height:1.5;
+  color:#7a5c00;text-align:center;max-width:130px;
+}
+.coin-divider{
+  width:60px;height:1.5px;
+  background:linear-gradient(90deg,transparent,#a07820,transparent);
+}
+
+/* ground glow */
+.coin-glow{
+  width:160px;height:30px;margin-top:12px;
+  background:radial-gradient(ellipse,rgba(212,175,55,0.3),transparent 70%);
+  filter:blur(6px);
+  animation:glowPulse 3s ease-in-out infinite;
+}
+@keyframes glowPulse{0%,100%{opacity:.5;}50%{opacity:1;}}
+
+/* drag hint */
+.coin-drag-hint{
+  font-size:11px;color:rgba(212,175,55,0.45);letter-spacing:.5px;
+  margin-top:4px;transition:opacity .4s;
+}
+.coin-drag-hint.hidden{display:none !important;}
+
+/* ════ CONFIGURATOR dark background ════ */
+.section-alt{
+  background:linear-gradient(135deg,#0d1420 0%,#111827 40%,#0a1628 100%) !important;
+}
+.section-alt .section-tag{color:#60a5fa;border-color:rgba(96,165,250,0.3);background:rgba(37,99,235,0.1);}
+.section-alt .section-title{color:#f1f5f9;}
+.section-alt .section-sub{color:#94a3b8;}
+.section-alt .config-wrap{
+  background:rgba(255,255,255,0.03);
+  border:1px solid rgba(255,255,255,0.06);
+  border-radius:var(--radius-lg);
+}
+.sc-preview{
+  width:100%;min-height:420px;
+  background:linear-gradient(180deg,#040812 0%,#07112a 50%,#040812 100%);
+  display:flex;align-items:center;justify-content:center;
+  padding:48px 20px 60px;position:relative;overflow:hidden;
+}
+
+/* ambient glow rings */
+.logi-ring{
+  position:absolute;border-radius:50%;
+  border:1px solid rgba(59,130,246,0.18);
+  animation:ringPulse 4s ease-in-out infinite;
+  top:50%;left:50%;transform:translate(-50%,-50%);
+}
+.logi-ring-1{width:320px;height:320px;animation-delay:0s;}
+.logi-ring-2{width:480px;height:480px;animation-delay:.8s;border-color:rgba(59,130,246,0.10);}
+.logi-ring-3{width:640px;height:640px;animation-delay:1.6s;border-color:rgba(59,130,246,0.06);}
+@keyframes ringPulse{
+  0%,100%{opacity:.4;transform:translate(-50%,-50%) scale(1);}
+  50%{opacity:.9;transform:translate(-50%,-50%) scale(1.03);}
+}
+
+/* 3D cube stage */
+.legi-logo-stage{
+  position:relative;z-index:1;
+  display:flex;flex-direction:column;align-items:center;
+  gap:0;
+}
+.legi-cube-wrap{
+  perspective:900px;
+  perspective-origin:50% 40%;
+  width:300px;height:160px;
+  display:flex;align-items:center;justify-content:center;
+}
+.legi-cube{
+  width:260px;height:130px;
+  transform-style:preserve-3d;
+  animation:cubeRotate 8s linear infinite;
+  position:relative;
+}
+@keyframes cubeRotate{
+  0%   {transform:rotateY(0deg)   rotateX(12deg);}
+  100% {transform:rotateY(360deg) rotateX(12deg);}
+}
+
+/* faces */
+.lc-face{
+  position:absolute;
+  backface-visibility:hidden;
+  display:flex;align-items:center;justify-content:center;
+  overflow:hidden;
+}
+.lc-front,.lc-back{
+  width:260px;height:130px;
+  border-radius:12px;
+  border:1.5px solid rgba(96,165,250,0.5);
+}
+.lc-front{
+  transform:translateZ(65px);
+  background:linear-gradient(135deg,rgba(10,20,50,0.95),rgba(15,30,70,0.98));
+  box-shadow:
+    0 0 40px rgba(59,130,246,0.4),
+    0 0 80px rgba(59,130,246,0.15),
+    inset 0 1px 0 rgba(147,197,253,0.2),
+    inset 0 0 40px rgba(37,99,235,0.1);
+}
+.lc-back{
+  transform:rotateY(180deg) translateZ(65px);
+  background:linear-gradient(135deg,rgba(8,18,45,0.95),rgba(12,25,60,0.98));
+  box-shadow:inset 0 0 30px rgba(37,99,235,0.12);
+}
+.lc-top{
+  width:260px;height:130px;
+  transform:rotateX(90deg) translateZ(65px);
+  background:linear-gradient(180deg,rgba(59,130,246,0.15),rgba(37,99,235,0.05));
+  border:1px solid rgba(96,165,250,0.2);
+  border-radius:12px;
+}
+.lc-bottom{
+  width:260px;height:130px;
+  transform:rotateX(-90deg) translateZ(65px);
+  background:rgba(5,10,30,0.9);
+  border:1px solid rgba(37,99,235,0.15);
+  border-radius:12px;
+}
+.lc-left{
+  width:130px;height:130px;
+  transform:rotateY(-90deg) translateZ(130px);
+  background:linear-gradient(180deg,rgba(15,30,70,0.9),rgba(8,18,45,0.95));
+  border:1px solid rgba(96,165,250,0.25);
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+}
+.lc-right{
+  width:130px;height:130px;
+  transform:rotateY(90deg) translateZ(130px);
+  background:linear-gradient(180deg,rgba(15,30,70,0.9),rgba(8,18,45,0.95));
+  border:1px solid rgba(96,165,250,0.25);
+  border-radius:8px;
+  display:flex;align-items:center;justify-content:center;
+}
+.lc-top-stripe{
+  width:70%;height:4px;border-radius:2px;
+  background:linear-gradient(90deg,transparent,rgba(96,165,250,0.6),transparent);
+  box-shadow:0 0 12px rgba(96,165,250,0.8);
+}
+.lc-side-text{
+  font-size:18px;font-weight:800;letter-spacing:4px;
+  color:rgba(96,165,250,0.35);
+  text-shadow:0 0 10px rgba(96,165,250,0.3);
+  writing-mode:vertical-rl;
+}
+
+/* logo inner */
+.lc-logo-inner{
+  display:flex;flex-direction:column;align-items:center;gap:6px;
+  padding:12px;
+}
+.lc-logo-inner svg{
+  filter:drop-shadow(0 0 8px rgba(96,165,250,0.8)) drop-shadow(0 0 20px rgba(59,130,246,0.5));
+  animation:neonBlink 3s ease-in-out infinite;
+}
+@keyframes neonBlink{
+  0%,100%{filter:drop-shadow(0 0 8px rgba(96,165,250,0.9)) drop-shadow(0 0 20px rgba(59,130,246,0.6));}
+  50%{filter:drop-shadow(0 0 14px rgba(147,197,253,1)) drop-shadow(0 0 35px rgba(96,165,250,0.9)) drop-shadow(0 0 60px rgba(59,130,246,0.4));}
+}
+.lc-tagline{
+  font-size:9px;letter-spacing:1.5px;text-transform:uppercase;
+  color:rgba(147,197,253,0.6);
+  text-shadow:0 0 8px rgba(96,165,250,0.6);
+}
+.lc-back-inner{gap:8px;}
+.lc-icon{font-size:32px;filter:drop-shadow(0 0 8px rgba(96,165,250,0.6));}
+.lc-back-text{
+  font-size:22px;font-weight:800;letter-spacing:4px;
+  color:rgba(147,197,253,0.8);
+  text-shadow:0 0 12px rgba(96,165,250,0.8);
+}
+
+/* tools row on back face */
+.lc-tools-row{display:flex;gap:14px;align-items:center;justify-content:center;margin-bottom:4px;}
+.lc-tools-row svg{filter:drop-shadow(0 0 6px rgba(96,165,250,0.8)) drop-shadow(0 0 14px rgba(59,130,246,0.5));}
+
+/* drag hint */
+.logi-drag-hint{
+  font-size:11px;color:rgba(96,165,250,0.55);
+  letter-spacing:.5px;margin-top:8px;
+  transition:opacity .4s;
+  text-align:center;
+}
+.logi-drag-hint.hidden{display:none !important;}
+
+/* enhanced neon glow on cube */
+.lc-front{
+  box-shadow:
+    0 0 30px rgba(59,130,246,0.6),
+    0 0 70px rgba(59,130,246,0.25),
+    0 0 120px rgba(37,99,235,0.15),
+    inset 0 1px 0 rgba(191,219,254,0.3),
+    inset 0 0 30px rgba(37,99,235,0.12);
+}
+.legi-cube-wrap{cursor:grab;}
+.legi-cube-wrap:active{cursor:grabbing;}
+.logi-ground{
+  width:300px;height:60px;
+  margin-top:-8px;
+  position:relative;
+  overflow:hidden;
+}
+.logi-reflect{
+  width:220px;height:50px;
+  margin:0 auto;
+  background:linear-gradient(180deg,rgba(59,130,246,0.2) 0%,transparent 100%);
+  border-radius:50%;
+  filter:blur(8px);
+  animation:reflectPulse 8s linear infinite;
+}
+@keyframes reflectPulse{
+  0%,100%{opacity:.4;}50%{opacity:.85;}
+}
+
+/* floating particles */
+.logi-particle{
+  position:absolute;border-radius:50%;
+  background:rgba(96,165,250,0.7);
+  box-shadow:0 0 6px rgba(96,165,250,0.9);
+  animation:particleDrift linear infinite;
+  pointer-events:none;
+}
+.p1{width:3px;height:3px;left:25%;top:30%;animation-duration:6s;animation-delay:0s;}
+.p2{width:2px;height:2px;left:70%;top:20%;animation-duration:8s;animation-delay:1.5s;}
+.p3{width:4px;height:4px;left:55%;top:65%;animation-duration:7s;animation-delay:3s;}
+.p4{width:2px;height:2px;left:15%;top:60%;animation-duration:9s;animation-delay:.8s;}
+.p5{width:3px;height:3px;left:80%;top:50%;animation-duration:5.5s;animation-delay:2.2s;}
+@keyframes particleDrift{
+  0%{transform:translateY(0) scale(1);opacity:.8;}
+  50%{transform:translateY(-30px) scale(1.3);opacity:1;}
+  100%{transform:translateY(-60px) scale(.8);opacity:0;}
+}
+.showcase-stats{
+  display:flex;gap:32px;margin-top:32px;position:relative;z-index:1;
+  flex-wrap:wrap;justify-content:center;
+}
+.sc-stat{text-align:center;}
+.sc-stat-num{font-size:26px;font-weight:700;color:#60a5fa;}
+.sc-stat-lbl{font-size:12px;color:#64748b;margin-top:3px;}
+
+/* Blue/grey decorative cards on sections */
+.section-deco-left,.section-deco-right{
+  position:absolute;top:50%;transform:translateY(-50%);
+  width:180px;height:300px;border-radius:16px;
+  pointer-events:none;z-index:0;
+}
+.section-deco-left{
+  left:-60px;
+  background:linear-gradient(135deg,rgba(37,99,235,0.08),rgba(100,116,139,0.06));
+  border:1px solid rgba(37,99,235,0.12);
+}
+.section-deco-right{
+  right:-60px;
+  background:linear-gradient(135deg,rgba(100,116,139,0.06),rgba(37,99,235,0.08));
+  border:1px solid rgba(100,116,139,0.12);
+}
+
+/* corner accent */
+.section{position:relative;overflow:hidden;}
+.section::before{
+  content:'';position:absolute;top:0;right:0;
+  width:200px;height:200px;
+  background:radial-gradient(circle at top right,rgba(37,99,235,0.06),transparent 70%);
+  pointer-events:none;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+
+.hf1{bottom:18%;left:-5%;animation-delay:0s;}
+.hf2{top:18%;right:-5%;animation-delay:1.5s;}
+.hf3{top:40%;left:-8%;animation-delay:0.8s;}
+.hf-label{font-size:10px;color:var(--muted);text-transform:uppercase;letter-spacing:1px;margin-bottom:4px;}
+.hf-val{font-size:15px;font-weight:700;color:var(--text);}
+.hf-val.accent{color:var(--accent);}
+
+/* ════════════════════════════════════════
+   SECTION STYLES
+════════════════════════════════════════ */
+.section{padding:90px 5%;}
+.section-alt{background:var(--bg2);}
+.section-tag{
+  display:inline-block;
+  background:rgba(232,101,10,0.1);color:var(--accent);
+  border-radius:30px;padding:5px 16px;
+  font-size:11px;font-weight:600;letter-spacing:1.5px;
+  text-transform:uppercase;margin-bottom:16px;
+}
+.section-title{
+  font-size:clamp(28px,3.5vw,44px);font-weight:700;
+  line-height:1.15;color:var(--text);
+  letter-spacing:-0.5px;margin-bottom:12px;
+}
+.section-sub{
+  font-size:15px;color:var(--text2);max-width:520px;line-height:1.8;
+}
+.section-header{margin-bottom:56px;}
+
+/* ════════════════════════════════════════
+   FEATURES / BENEFITS
+════════════════════════════════════════ */
+.features-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+}
+.feat-card{
+  background:white;border-radius:var(--radius);
+  padding:32px 28px;border:1px solid var(--border);
+  transition:transform .25s,box-shadow .25s;
+  position:relative;overflow:hidden;
+}
+.feat-card::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--accent),var(--accent2));
+  transform:scaleX(0);transform-origin:left;transition:transform .3s;
+}
+.feat-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}
+.feat-card:hover::before{transform:scaleX(1);}
+.feat-icon{
+  width:52px;height:52px;border-radius:14px;
+  background:linear-gradient(135deg,rgba(232,101,10,0.1),rgba(255,138,53,0.15));
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;margin-bottom:20px;
+}
+.feat-title{font-size:17px;font-weight:700;color:var(--text);margin-bottom:10px;}
+.feat-desc{font-size:14px;color:var(--text2);line-height:1.7;}
+
+/* ════════════════════════════════════════
+   CONFIGURATOR SECTION
+════════════════════════════════════════ */
+#configurator{scroll-margin-top:68px;}
+.config-wrap{
+  display:grid;grid-template-columns:1fr 380px;
+  gap:28px;
+  align-items:start;
+}
+
+/* 3D Viewer */
+.viewer-box{
+  background:linear-gradient(145deg,#fefcf8,#f5ede0);
+  border-radius:var(--radius-lg);
+  border:1px solid var(--border);
+  overflow:hidden;
+  box-shadow:var(--shadow-md);
+  position:relative;
+}
+.viewer-header{
+  padding:14px 20px;
+  display:flex;align-items:center;justify-content:space-between;
+  border-bottom:1px solid var(--border);
+  background:rgba(255,255,255,0.7);
+  backdrop-filter:blur(10px);
+}
+.viewer-title{font-size:13px;font-weight:600;color:var(--text2);}
+.viewer-badge{
+  display:flex;align-items:center;gap:6px;
+  font-size:11px;color:var(--green);font-weight:600;
+}
+.viewer-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--green);animation:blink 2s infinite;}
+.three-container{
+  position:relative;height:440px;cursor:grab;
+}
+.three-container:active{cursor:grabbing;}
+#mainCanvas{display:block;width:100%;height:100%;}
+
+/* Rotation controls */
+.rot-pad{
+  position:absolute;top:16px;right:16px;
+  display:flex;flex-direction:column;gap:5px;
+}
+.rot-row{display:flex;gap:5px;justify-content:center;}
+.rb{
+  width:32px;height:32px;border-radius:9px;
+  background:rgba(255,255,255,0.88);border:1px solid var(--border);
+  font-size:13px;cursor:pointer;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text2);box-shadow:var(--shadow-sm);
+  transition:background .15s,color .15s,border-color .15s;
+  font-family:inherit;
+}
+.rb:hover{background:white;color:var(--accent);border-color:rgba(232,101,10,0.4);}
+.rb-reset{
+  font-size:11px;letter-spacing:.3px;
+  width:auto;padding:0 10px;color:var(--muted);
+}
+.rotate-hint{
+  position:absolute;bottom:14px;left:50%;transform:translateX(-50%);
+  background:rgba(255,255,255,0.88);backdrop-filter:blur(8px);
+  border:1px solid var(--border);border-radius:20px;
+  padding:5px 16px;font-size:11px;color:var(--muted);
+  pointer-events:none;white-space:nowrap;
+}
+
+/* Size info bar */
+.info-bar{
+  display:flex;background:white;border-top:1px solid var(--border);
+}
+.ib-item{
+  flex:1;padding:14px 10px;text-align:center;
+  border-right:1px solid var(--border);
+}
+.ib-item:last-child{border-right:none;}
+.ib-label{font-size:9px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);margin-bottom:4px;}
+.ib-value{font-size:20px;font-weight:700;color:var(--accent);}
+.ib-unit{font-size:10px;color:var(--muted);}
+
+/* Sliders area */
+.sliders-area{
+  padding:16px 20px;background:rgba(248,246,242,0.8);
+  border-top:1px solid var(--border);
+}
+.sl-group-title{
+  font-size:9px;letter-spacing:2px;text-transform:uppercase;
+  color:var(--muted);margin-bottom:12px;font-weight:600;
+}
+.sl-row{display:flex;align-items:center;gap:12px;margin-bottom:11px;}
+.sl-row:last-child{margin-bottom:0;}
+.sl-name{font-size:12px;color:var(--text2);width:60px;flex-shrink:0;font-weight:500;}
+.sl-track{
+  flex:1;-webkit-appearance:none;appearance:none;
+  height:4px;border-radius:2px;
+  background:linear-gradient(90deg,var(--accent) var(--pct,50%),var(--border) var(--pct,50%));
+  outline:none;cursor:pointer;
+}
+.sl-track::-webkit-slider-thumb{
+  -webkit-appearance:none;width:16px;height:16px;
+  border-radius:50%;background:var(--accent);cursor:pointer;
+  box-shadow:0 2px 8px rgba(232,101,10,0.4);
+  border:2px solid white;transition:transform .15s;
+}
+.sl-track::-webkit-slider-thumb:hover{transform:scale(1.2);}
+.sl-track::-moz-range-thumb{width:16px;height:16px;border-radius:50%;background:var(--accent);border:2px solid white;cursor:pointer;}
+.sl-val{font-size:12px;font-weight:600;color:var(--text);width:44px;text-align:right;}
+
+/* ════════════════════════════════════════
+   SIDEBAR CONTROLS
+════════════════════════════════════════ */
+.controls-panel{
+  display:flex;flex-direction:column;gap:0;
+  background:white;border-radius:var(--radius-lg);
+  border:1px solid var(--border);
+  box-shadow:var(--shadow-md);
+  overflow:hidden;
+  max-height:800px;overflow-y:auto;
+}
+.controls-panel::-webkit-scrollbar{width:3px;}
+.controls-panel::-webkit-scrollbar-thumb{background:var(--border);}
+.ctrl-section{
+  padding:20px 18px 16px;
+  border-bottom:1px solid var(--border);
+}
+.ctrl-section:last-child{border-bottom:none;}
+.ctrl-title{
+  font-size:9px;letter-spacing:2.5px;text-transform:uppercase;
+  color:var(--muted);font-weight:700;margin-bottom:14px;
+  display:flex;align-items:center;gap:8px;
+}
+.ctrl-title::after{content:'';flex:1;height:1px;background:var(--border);}
+
+/* Color swatches */
+.swatch-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;}
+.sw-wrap{display:flex;flex-direction:column;align-items:center;gap:5px;}
+.sw{
+  width:100%;aspect-ratio:1;border-radius:10px;cursor:pointer;
+  border:2.5px solid transparent;transition:transform .15s,border-color .2s;
+  position:relative;box-shadow:0 2px 8px rgba(0,0,0,0.12);
+}
+.sw:hover{transform:scale(1.1);}
+.sw.on{border-color:var(--accent);}
+.sw.on::after{
+  content:'✓';position:absolute;inset:0;
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;color:rgba(255,255,255,0.95);text-shadow:0 1px 4px rgba(0,0,0,.4);
+}
+.sw-lbl{font-size:9px;color:var(--muted);text-align:center;font-weight:500;}
+
+/* Worktop */
+.wt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;}
+.wt-btn{
+  background:var(--bg);border:2px solid var(--border);
+  border-radius:10px;padding:9px 5px;cursor:pointer;
+  text-align:center;font-family:inherit;font-size:10px;
+  color:var(--text2);transition:border-color .2s,color .2s;font-weight:500;
+}
+.wt-bar{height:20px;border-radius:5px;margin-bottom:6px;}
+.wt-btn:hover,.wt-btn.on{border-color:var(--accent);color:var(--accent);}
+
+/* Handle */
+.handle-row{display:flex;gap:7px;}
+.h-btn{
+  flex:1;background:var(--bg);border:2px solid var(--border);
+  border-radius:10px;padding:10px 4px;cursor:pointer;text-align:center;
+  font-family:inherit;font-size:10px;color:var(--text2);
+  transition:border-color .2s,color .2s;font-weight:500;
+}
+.h-btn svg{display:block;margin:0 auto 5px;}
+.h-btn:hover,.h-btn.on{border-color:var(--accent);color:var(--accent);}
+
+/* Modules */
+.mod-list{display:flex;flex-direction:column;gap:7px;}
+.mod-item{
+  display:flex;align-items:center;justify-content:space-between;
+  background:var(--bg);border:1.5px solid var(--border);
+  border-radius:10px;padding:10px 12px;cursor:pointer;
+  transition:border-color .2s,background .2s;
+}
+.mod-item:hover{border-color:var(--accent);background:rgba(232,101,10,0.03);}
+.mod-left{display:flex;align-items:center;gap:10px;font-size:12px;font-weight:500;}
+.mod-icon{font-size:16px;}
+.tgl{
+  width:34px;height:18px;background:var(--border);border-radius:9px;
+  position:relative;transition:background .25s;flex-shrink:0;
+}
+.tgl::after{
+  content:'';position:absolute;width:12px;height:12px;
+  background:white;border-radius:50%;top:3px;left:3px;
+  transition:left .25s;box-shadow:0 1px 4px rgba(0,0,0,.2);
+}
+.tgl.on{background:var(--accent);}
+.tgl.on::after{left:19px;}
+
+/* Layout */
+.lay-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;}
+.lay-btn{
+  background:var(--bg);border:2px solid var(--border);
+  border-radius:10px;padding:12px 6px 9px;cursor:pointer;text-align:center;
+  font-family:inherit;font-size:10px;color:var(--text2);font-weight:500;
+  transition:border-color .2s,color .2s,background .2s;
+}
+.lay-btn svg{display:block;margin:0 auto 7px;}
+.lay-btn:hover,.lay-btn.on{border-color:var(--accent);color:var(--accent);background:rgba(232,101,10,0.05);}
+
+/* Price per sqm */
+.psq-box{
+  background:linear-gradient(135deg,#fff9f5,#fef2e8);
+  border:1.5px solid rgba(232,101,10,0.2);
+  border-radius:12px;padding:16px;
+}
+.psq-title{font-size:9px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);font-weight:700;margin-bottom:12px;}
+.psq-row{display:flex;align-items:center;gap:8px;margin-bottom:9px;}
+.psq-row:last-child{margin-bottom:0;}
+.psq-lbl{font-size:11px;color:var(--text2);width:74px;flex-shrink:0;font-weight:500;}
+.psq-inp{
+  flex:1;background:white;border:1.5px solid var(--border);
+  border-radius:8px;padding:7px 10px;color:var(--text);
+  font-family:inherit;font-size:12px;font-weight:600;
+  outline:none;transition:border-color .2s;
+}
+.psq-inp:focus{border-color:var(--accent);}
+.psq-unit{font-size:11px;color:var(--muted);width:30px;text-align:right;flex-shrink:0;}
+
+/* Price summary */
+.price-total-box{
+  background:linear-gradient(135deg,var(--text),#2a2010);
+  border-radius:12px;padding:18px;
+  color:white;
+}
+.pb-row{
+  display:flex;justify-content:space-between;
+  font-size:11px;margin-bottom:6px;
+}
+.pb-lbl{color:rgba(255,255,255,0.5);}
+.pb-val{color:rgba(255,255,255,0.85);font-weight:600;}
+.pb-div{height:1px;background:rgba(255,255,255,0.1);margin:9px 0;}
+.price-total-row{display:flex;justify-content:space-between;align-items:flex-end;}
+.pt-lbl{font-size:10px;letter-spacing:1.5px;text-transform:uppercase;color:rgba(255,255,255,0.4);}
+.pt-val{font-size:32px;font-weight:700;color:var(--accent2);line-height:1;}
+.pt-cur{font-size:14px;color:rgba(255,255,255,0.4);margin-left:3px;}
+.pt-sqm{font-size:10px;color:rgba(255,255,255,0.35);text-align:right;margin-top:3px;}
+
+/* Buttons */
+.btn-order{
+  width:100%;background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:white;border:none;border-radius:11px;padding:13px 20px;
+  font-family:inherit;font-size:14px;font-weight:700;cursor:pointer;
+  transition:transform .2s,box-shadow .2s;margin-top:14px;
+  display:flex;align-items:center;justify-content:center;gap:8px;
+  box-shadow:0 6px 20px rgba(232,101,10,0.3);
+  letter-spacing:.3px;
+}
+.btn-order:hover{transform:translateY(-2px);box-shadow:0 10px 28px rgba(232,101,10,0.4);}
+.btn-save{
+  width:100%;background:transparent;color:var(--text2);
+  border:1.5px solid var(--border);border-radius:11px;
+  padding:11px 20px;font-family:inherit;font-size:13px;
+  cursor:pointer;transition:border-color .2s,color .2s;margin-top:8px;
+}
+.btn-save:hover{border-color:var(--accent);color:var(--accent);}
+
+/* ════════════════════════════════════════
+   PRODUCTS GALLERY
+════════════════════════════════════════ */
+.products-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+}
+.product-card{
+  background:white;border-radius:var(--radius-lg);
+  border:1px solid var(--border);overflow:hidden;
+  transition:transform .25s,box-shadow .25s;
+  cursor:pointer;
+}
+.product-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-lg);}
+.product-img{
+  height:220px;display:flex;align-items:center;justify-content:center;
+  position:relative;overflow:hidden;
+}
+.product-badge{
+  position:absolute;top:14px;left:14px;
+  background:var(--accent);color:white;
+  border-radius:8px;padding:4px 12px;
+  font-size:11px;font-weight:700;letter-spacing:.3px;
+}
+.product-badge.new{background:var(--green);}
+.product-badge.sale{background:var(--gold);}
+.product-info{padding:20px;}
+.product-name{font-size:17px;font-weight:700;color:var(--text);margin-bottom:6px;}
+.product-desc{font-size:13px;color:var(--text2);line-height:1.6;margin-bottom:14px;}
+.product-bottom{display:flex;align-items:center;justify-content:space-between;}
+.product-price{font-size:22px;font-weight:700;color:var(--accent);}
+.product-price-old{font-size:13px;color:var(--muted);text-decoration:line-through;margin-left:6px;}
+.product-btn{
+  background:var(--bg);border:1.5px solid var(--border);
+  color:var(--text2);padding:8px 16px;border-radius:9px;
+  font-size:12px;font-weight:600;cursor:pointer;font-family:inherit;
+  transition:background .2s,border-color .2s,color .2s;
+}
+.product-btn:hover{background:var(--accent);border-color:var(--accent);color:white;}
+
+/* ════════════════════════════════════════
+   PROCESS STEPS
+════════════════════════════════════════ */
+.process-grid{
+  display:grid;grid-template-columns:repeat(4,1fr);gap:20px;
+  counter-reset:steps;
+}
+.process-step{
+  text-align:center;padding:32px 20px;
+  background:white;border-radius:var(--radius);
+  border:1px solid var(--border);
+  position:relative;
+}
+.process-step::after{
+  content:'→';position:absolute;right:-16px;top:50%;transform:translateY(-50%);
+  font-size:20px;color:var(--border);font-weight:300;
+}
+.process-step:last-child::after{display:none;}
+.step-num{
+  width:48px;height:48px;border-radius:50%;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:white;font-size:18px;font-weight:700;
+  display:flex;align-items:center;justify-content:center;
+  margin:0 auto 18px;
+  box-shadow:0 4px 16px rgba(232,101,10,0.3);
+}
+.step-icon{font-size:26px;margin-bottom:14px;}
+.step-title{font-size:15px;font-weight:700;color:var(--text);margin-bottom:8px;}
+.step-desc{font-size:13px;color:var(--text2);line-height:1.6;}
+
+/* ════════════════════════════════════════
+   TESTIMONIALS
+════════════════════════════════════════ */
+.testimonials-grid{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:24px;
+}
+.testi-card{
+  background:white;border-radius:var(--radius);
+  border:1px solid var(--border);padding:28px;
+  transition:transform .2s,box-shadow .2s;
+}
+.testi-card:hover{transform:translateY(-4px);box-shadow:var(--shadow-md);}
+.stars{color:#f59e0b;font-size:16px;margin-bottom:14px;letter-spacing:2px;}
+.testi-text{font-size:14px;color:var(--text2);line-height:1.7;margin-bottom:18px;}
+.testi-author{display:flex;align-items:center;gap:12px;}
+.testi-avatar{
+  width:40px;height:40px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:16px;font-weight:700;color:white;
+}
+.testi-name{font-size:14px;font-weight:700;color:var(--text);}
+.testi-city{font-size:12px;color:var(--muted);}
+
+/* ════════════════════════════════════════
+   CTA BANNER
+════════════════════════════════════════ */
+.cta-banner{
+  background:linear-gradient(135deg,var(--accent),var(--accent2),#ff6b35);
+  border-radius:var(--radius-lg);
+  padding:60px 5%;
+  text-align:center;
+  margin:0 5% 80px;
+  position:relative;overflow:hidden;
+}
+.cta-banner::before{
+  content:'';position:absolute;inset:-50%;
+  background:radial-gradient(circle at 30% 50%,rgba(255,255,255,0.15),transparent 60%);
+}
+.cta-banner h2{
+  font-size:clamp(28px,3.5vw,46px);font-weight:700;color:white;
+  margin-bottom:14px;position:relative;
+}
+.cta-banner p{
+  font-size:16px;color:rgba(255,255,255,0.85);
+  margin-bottom:32px;max-width:500px;margin-left:auto;margin-right:auto;
+  position:relative;
+}
+.cta-btn-white{
+  background:white;color:var(--accent);
+  padding:14px 40px;border-radius:12px;
+  font-size:16px;font-weight:700;border:none;cursor:pointer;
+  font-family:inherit;position:relative;
+  transition:transform .2s,box-shadow .2s;
+  box-shadow:0 6px 24px rgba(0,0,0,0.15);
+  display:inline-flex;align-items:center;gap:8px;
+}
+.cta-btn-white:hover{transform:translateY(-2px);box-shadow:0 10px 32px rgba(0,0,0,0.2);}
+
+/* ════════════════════════════════════════
+   FOOTER
+════════════════════════════════════════ */
+footer{
+  background:var(--text);color:rgba(255,255,255,0.7);
+  padding:60px 5% 30px;
+}
+.footer-grid{
+  display:grid;grid-template-columns:2fr 1fr 1fr 1fr;
+  gap:40px;margin-bottom:40px;
+}
+.footer-brand .logo-icon{
+  width:42px;height:42px;border-radius:10px;
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;font-weight:700;color:white;margin-bottom:14px;
+}
+.footer-brand p{font-size:13px;line-height:1.8;max-width:240px;margin-top:10px;}
+.footer-title{font-size:13px;font-weight:700;color:white;margin-bottom:16px;letter-spacing:.3px;}
+.footer-links{display:flex;flex-direction:column;gap:9px;}
+.footer-links a{font-size:13px;color:rgba(255,255,255,0.55);text-decoration:none;transition:color .2s;}
+.footer-links a:hover{color:var(--accent2);}
+.footer-bottom{
+  border-top:1px solid rgba(255,255,255,0.1);padding-top:24px;
+  display:flex;justify-content:space-between;align-items:center;
+  font-size:12px;color:rgba(255,255,255,0.35);
+}
+.social-links{display:flex;gap:12px;}
+.social-btn{
+  width:34px;height:34px;border-radius:8px;
+  background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.12);
+  display:flex;align-items:center;justify-content:center;
+  font-size:15px;cursor:pointer;transition:background .2s;text-decoration:none;
+}
+.social-btn:hover{background:var(--accent);}
+
+/* ════════════════════════════════════════
+   MODAL — ORDER / SAVE
+════════════════════════════════════════ */
+.modal-overlay{
+  position:fixed;inset:0;background:rgba(0,0,0,0.5);
+  backdrop-filter:blur(8px);z-index:2000;
+  display:flex;align-items:center;justify-content:center;
+  opacity:0;pointer-events:none;transition:opacity .3s;
+}
+.modal-overlay.open{opacity:1;pointer-events:all;}
+.modal-box{
+  background:white;border-radius:var(--radius-lg);
+  padding:40px;max-width:500px;width:90%;
+  box-shadow:var(--shadow-lg);
+  transform:translateY(20px);transition:transform .3s;
+}
+.modal-overlay.open .modal-box{transform:translateY(0);}
+.modal-icon{font-size:48px;text-align:center;margin-bottom:20px;}
+.modal-title{font-size:24px;font-weight:700;color:var(--text);text-align:center;margin-bottom:8px;}
+.modal-sub{font-size:14px;color:var(--text2);text-align:center;margin-bottom:28px;line-height:1.7;}
+.modal-form{display:flex;flex-direction:column;gap:12px;}
+.modal-inp{
+  background:var(--bg);border:1.5px solid var(--border);
+  border-radius:10px;padding:12px 16px;
+  font-family:inherit;font-size:14px;color:var(--text);
+  outline:none;transition:border-color .2s;
+}
+.modal-inp:focus{border-color:var(--accent);}
+.modal-submit{
+  background:linear-gradient(135deg,var(--accent),var(--accent2));
+  color:white;border:none;border-radius:10px;padding:13px;
+  font-family:inherit;font-size:15px;font-weight:700;cursor:pointer;
+  transition:transform .2s;
+}
+.modal-submit:hover{transform:translateY(-1px);}
+.modal-close{
+  position:absolute;top:16px;right:16px;
+  background:var(--bg);border:none;border-radius:8px;
+  width:32px;height:32px;cursor:pointer;font-size:14px;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--text2);transition:background .2s;
+}
+.modal-close:hover{background:var(--border);}
+.modal-box{position:relative;}
+.modal-config-info{
+  background:var(--bg);border-radius:10px;padding:14px;margin-bottom:16px;
+}
+.mci-row{display:flex;justify-content:space-between;font-size:12px;margin-bottom:4px;}
+.mci-lbl{color:var(--muted);}
+.mci-val{font-weight:600;color:var(--text);}
+
+/* Toast */
+#toast{
+  position:fixed;bottom:28px;left:50%;
+  transform:translateX(-50%) translateY(80px);
+  background:var(--text);color:white;
+  border-radius:12px;padding:13px 24px;
+  font-size:13px;font-weight:500;
+  transition:transform .4s cubic-bezier(.34,1.56,.64,1);
+  z-index:9999;pointer-events:none;white-space:nowrap;
+  box-shadow:var(--shadow-lg);
+  display:flex;align-items:center;gap:8px;
+}
+#toast.show{transform:translateX(-50%) translateY(0);}
+
+/* ════ CAB TABS — ზედა/ქვედა გარნ. selector ════ */
+.cab-tabs{
+  display:flex;gap:4px;
+  background:var(--bg2);
+  border-radius:10px;padding:4px;
+  margin-bottom:16px;
+}
+.cab-tab{
+  flex:1;padding:9px 6px;border-radius:7px;border:none;
+  font-family:inherit;font-size:12px;font-weight:600;
+  cursor:pointer;transition:all .2s;
+  background:transparent;color:var(--text2);
+  display:flex;align-items:center;justify-content:center;gap:5px;
+}
+.cab-tab.on{
+  background:var(--white);color:var(--accent);
+  box-shadow:0 1px 6px rgba(0,0,0,0.10);
+}
+.cab-tab:not(.on):hover{background:rgba(255,255,255,0.5);}
+.ct-icon{font-size:13px;}
+
+/* panels */
+.cab-panel{display:block;}
+.cab-panel.hidden{display:none;}
+
+/* selected preview chip */
+.cab-selected-preview{
+  display:flex;align-items:center;gap:10px;
+  margin-top:14px;padding:10px 12px;
+  background:var(--bg);border-radius:10px;
+  border:1.5px solid var(--border);
+}
+.csp-swatch{
+  width:32px;height:32px;border-radius:7px;flex-shrink:0;
+  box-shadow:0 2px 8px rgba(0,0,0,0.15);
+}
+.csp-info{display:flex;flex-direction:column;gap:2px;}
+.csp-name{font-size:13px;font-weight:600;color:var(--text);}
+.csp-mat{font-size:11px;color:var(--muted);}
+
+
+.mat-type-row{display:flex;gap:6px;flex-wrap:wrap;}
+.mt-btn{
+  flex:1;min-width:60px;height:36px;
+  background:var(--bg);border:1.5px solid var(--border);
+  border-radius:8px;padding:7px 4px;cursor:pointer;text-align:center;
+  font-family:inherit;font-size:11px;font-weight:500;color:var(--text2);
+  transition:border-color .2s,color .2s,background .2s;
+}
+.mt-btn:hover,.mt-btn.on{border-color:var(--accent);color:var(--accent);background:rgba(37,99,235,0.04);}
+
+
+.mat-grid{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:20px;
+}
+.mat-card{
+  background:white;border-radius:var(--radius);
+  border:2px solid var(--border);
+  overflow:hidden;cursor:pointer;
+  transition:transform .22s,box-shadow .22s,border-color .22s;
+}
+.mat-card:hover{
+  transform:translateY(-5px);
+  box-shadow:var(--shadow-md);
+  border-color:var(--accent);
+}
+.mat-card.selected{
+  border-color:var(--accent);
+  box-shadow:0 0 0 4px rgba(232,101,10,0.15);
+}
+.mat-swatch{
+  height:100px;overflow:hidden;
+  display:flex;align-items:center;justify-content:center;
+}
+.mat-swatch svg{display:block;}
+.mat-info{
+  padding:12px 14px;
+  border-top:1px solid var(--border);
+}
+.mat-name{font-size:13px;font-weight:700;color:var(--text);margin-bottom:3px;}
+.mat-type{font-size:11px;color:var(--muted);margin-bottom:6px;}
+.mat-badge{
+  font-size:10px;font-weight:600;
+  color:var(--accent);
+  display:inline-flex;align-items:center;gap:4px;
+}
+
+@media(max-width:900px){.mat-grid{grid-template-columns:repeat(2,1fr);}}
+@media(max-width:500px){.mat-grid{grid-template-columns:repeat(2,1fr);}}
+
+
+@media(max-width:1100px){
+  .config-wrap{grid-template-columns:1fr;}
+  .features-grid{grid-template-columns:repeat(2,1fr);}
+  .products-grid{grid-template-columns:repeat(2,1fr);}
+  .footer-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:768px){
+  .hero{grid-template-columns:1fr;}
+  .hero-right{display:none;}
+  .hero-left{padding:40px 6% 60px;}
+  nav{padding:0 4%;}
+  .nav-links{display:none;}
+  .nav-burger{display:flex;}
+  .features-grid,.products-grid,.testimonials-grid{grid-template-columns:1fr;}
+  .process-grid{grid-template-columns:repeat(2,1fr);}
+  .process-step::after{display:none;}
+  .footer-grid{grid-template-columns:1fr;}
+  .section{padding:60px 5%;}
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════════ NAV ══════════════ -->
+<nav>
+  <a href="#" class="nav-logo">
+    <div class="nav-logo-icon">ლ</div>
+    <div class="nav-logo-text">ლეგ<span>ი</span></div>
+  </a>
+  <div class="nav-links">
+    <a href="#about">ჩვენ შესახებ</a>
+    <a href="#configurator">კონფიგურატორი</a>
+    <a href="#materials">მასალები</a>
+    
+    <a href="#process">პროცესი</a>
+    <a href="#contact">კონტაქტი</a>
+  </div>
+  <button class="nav-cta" onclick="openModal('order')">📞 დაგვიკავშირდი</button>
+  <div class="nav-burger" onclick="alert('მენიუ')">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero" id="hero">
+  <div class="hero-left">
+    <div class="hero-tag"><div class="dot"></div>ინდივიდუალური დიზაინი · ქართული ხარისხი</div>
+    <h1 class="hero-h1">
+      ავეჯი, რომელიც<br>
+      <span>შენთვის</span> იქმნება
+    </h1>
+    <p class="hero-sub">
+      ლეგი — ქართული პრემიუმ ავეჯის ბრენდი. შექმენი შენი საოცნებო სამზარეულო
+      ონლაინ კონფიგურატორით — ზომა, ფერი, მასალა, ფასი — ყველაფერი შენი სურვილით.
+    </p>
+    <div class="hero-btns">
+      <a href="#configurator" class="btn-primary">🎨 კონფიგურატორი</a>
+      
+    </div>
+    <div class="hero-stats">
+      <div>
+        <div class="stat-num">1000+</div>
+        <div class="stat-lbl">კმაყოფილი კლიენტი</div>
+      </div>
+      <div>
+        <div class="stat-num">15+</div>
+        <div class="stat-lbl">წლის გამოცდილება</div>
+      </div>
+      <div>
+        <div class="stat-num">100%</div>
+        <div class="stat-lbl">ქართული წარმოება</div>
+      </div>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-canvas-wrap">
+      <canvas id="heroCanvas"></canvas>
+      <div class="hero-float-card hf1">
+        <div class="hf-label">სულ ღირებულება</div>
+        <div class="hf-val accent" id="heroPrice">₾ 2,850</div>
+      </div>
+      <div class="hero-float-card hf2">
+        <div class="hf-label">ზომა</div>
+        <div class="hf-val">2.4 × 2.1 მ</div>
+      </div>
+      <div class="hero-float-card hf3">
+        <div class="hf-label">მასალა</div>
+        <div class="hf-val">MDF პრემიუმ</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ 3D SHOWCASE ══════════════ -->
+
+
+
+<!-- ══════════════ GOLD COIN LOGO ══════════════ -->
+<div class="coin-stage" id="coinStage">
+  <!-- ambient rings -->
+  <div class="coin-ring coin-ring-1"></div>
+  <div class="coin-ring coin-ring-2"></div>
+  <div class="coin-ring coin-ring-3"></div>
+
+  <!-- 3D coin -->
+  <div class="coin-wrap" id="coinWrap">
+    <div class="coin-body" id="coinBody">
+
+      <!-- FRONT: LEGI Since 2010 -->
+      <div class="coin-face coin-front">
+        <div class="coin-front-content">
+          <div class="coin-stars">✦ ✦ ✦</div>
+          <div class="coin-logo-text">LEGI</div>
+          <div class="coin-divider"></div>
+          <div class="coin-year">SINCE · 2010</div>
+          <div class="coin-stars">✦ ✦ ✦</div>
+        </div>
+      </div>
+
+      <!-- BACK: ლეგი ავეჯი -->
+      <div class="coin-face coin-back">
+        <div class="coin-back-content">
+          <div class="coin-stars">✦ ✦ ✦</div>
+          <div class="coin-geo-text">ლეგი ავეჯი</div>
+          <div class="coin-divider"></div>
+          <div class="coin-slogan">ინდივიდუალური<br>დიზაინით</div>
+          <div class="coin-stars">✦ ✦ ✦</div>
+        </div>
+      </div>
+
+      <!-- EDGE -->
+      <div class="coin-edge"></div>
+    </div>
+  </div>
+
+  <div class="coin-glow"></div>
+  <div class="coin-drag-hint" id="coinDragHint">🖱 გადაათრიე ბრუნვისთვის</div>
+</div>
+
+<!-- ══════════════ FEATURES ══════════════ -->
+<section class="section" id="about">
+  <div class="section-header">
+    <div class="section-tag">რატომ ლეგი</div>
+    <h2 class="section-title">ჩვენი უპირატესობები</h2>
+    <p class="section-sub">15 წელია ვქმნით ავეჯს, რომელიც თქვენს სახლს კომფორტს მატებს.</p>
+  </div>
+  <div class="features-grid">
+    <div class="feat-card">
+      <div class="feat-icon">🎨</div>
+      <div class="feat-title">ინდივიდუალური დიზაინი</div>
+      <div class="feat-desc">თითოეული ნაჭერი სპეციალურად შენთვის იქმნება. ასობით ფერი, მასალა და სტილი — შენი გემოვნებით.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">📐</div>
+      <div class="feat-title">ზუსტი ზომები</div>
+      <div class="feat-desc">უფასო გაზომვა სახლში. ჩვენი ოსტატები ზუსტ ზომებს ადგილზე იღებენ — 1 მმ სიზუსტით.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🏆</div>
+      <div class="feat-title">პრემიუმ მასალები</div>
+      <div class="feat-desc">EGGER, Pfleiderer და Blum-ის ფიტინგები. ევროპული ხარისხი, ქართული ხელოვნება.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">🚚</div>
+      <div class="feat-title">მიწოდება და მონტაჟი</div>
+      <div class="feat-desc">უფასო მიწოდება თბილისში. პროფესიონალური მონტაჟი 1–2 დღეში.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">💻</div>
+      <div class="feat-title">3D კონფიგურატორი</div>
+      <div class="feat-desc">ნახე შენი სამზარეულო 3D-ში, სანამ შეუკვეთავ. შეცვალე ფერი, ზომა, მასალა — მყისიერად.</div>
+    </div>
+    <div class="feat-card">
+      <div class="feat-icon">💰</div>
+      <div class="feat-title">გამჭვირვალე ფასი</div>
+      <div class="feat-desc">ფასი ჩანს კონფიგურატორში — ყველა ელემენტი ცალ-ცალკე. არანაირი დამალული გადასახადი.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CONFIGURATOR ══════════════ -->
+<section class="section section-alt" id="configurator">
+  <div class="section-header">
+    <div class="section-tag">3D კონფიგურატორი</div>
+    <h2 class="section-title">შექმენი შენი სამზარეულო</h2>
+    <p class="section-sub">შეარჩიე ზომა, ფერი, მასალა — ნახე ფასი მყისიერად. შემდეგ გამოგვიგზავნე!</p>
+  </div>
+
+  <div class="config-wrap">
+    <!-- 3D VIEWER -->
+    <div class="viewer-box">
+      <div class="viewer-header">
+        <div class="viewer-title">🏠 სამზარეულოს პრევიუ — ბრუნე 360°</div>
+        <div class="viewer-badge"><div class="dot"></div>ლაივ 3D</div>
+      </div>
+      <div class="three-container">
+        <canvas id="mainCanvas"></canvas>
+        <!-- Loading indicator -->
+        <div id="canvasLoading" style="position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;background:rgba(245,237,224,0.92);z-index:10;">
+          <div style="width:44px;height:44px;border:3px solid var(--border);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;margin-bottom:14px;"></div>
+          <div style="font-size:13px;color:var(--muted);">3D იტვირთება...</div>
+        </div>
+        <!-- Error fallback -->
+        <div id="canvasError" style="position:absolute;inset:0;display:none;flex-direction:column;align-items:center;justify-content:center;background:#f5ede0;text-align:center;padding:20px;">
+          <div style="font-size:48px;margin-bottom:12px;">🪑</div>
+          <div style="font-size:14px;font-weight:700;color:var(--text);margin-bottom:8px;">3D ვიზუალიზაცია</div>
+          <div style="font-size:12px;color:var(--muted);">ბრაუზერი ვერ ტვირთავს 3D.<br>გთხოვთ გამოიყენოთ Chrome.</div>
+        </div>
+        <div class="rot-pad">
+          <button class="rb" onclick="nudgeX(-15)">▲</button>
+          <div class="rot-row">
+            <button class="rb" onclick="nudgeY(-25)">◀</button>
+            <button class="rb rb-reset" onclick="resetView()">↺</button>
+            <button class="rb" onclick="nudgeY(25)">▶</button>
+          </div>
+          <button class="rb" onclick="nudgeX(15)">▼</button>
+        </div>
+        <div class="rotate-hint">🖱 გადაათრიე • 🖲 ზუმი</div>
+      </div>
+      <div class="info-bar">
+        <div class="ib-item">
+          <div class="ib-label">სიგრძე სულ</div>
+          <div class="ib-value" id="ibW">2.4</div>
+          <div class="ib-unit">მ</div>
+        </div>
+        <div class="ib-item">
+          <div class="ib-label">ქვედა გარნ.</div>
+          <div class="ib-value" id="ibLH">85</div>
+          <div class="ib-unit">სმ</div>
+        </div>
+        <div class="ib-item">
+          <div class="ib-label">ზედა გარნ.</div>
+          <div class="ib-value" id="ibUH">70</div>
+          <div class="ib-unit">სმ</div>
+        </div>
+        <div class="ib-item">
+          <div class="ib-label">სიღრმე</div>
+          <div class="ib-value" id="ibD">0.6</div>
+          <div class="ib-unit">მ</div>
+        </div>
+        <div class="ib-item">
+          <div class="ib-label">კვ.მ სულ</div>
+          <div class="ib-value" id="ibSqm">5.26</div>
+          <div class="ib-unit">მ²</div>
+        </div>
+      </div>
+      <div class="sliders-area">
+        <div class="sl-group-title">ზომის კონფიგურაცია</div>
+        <div class="sl-row">
+          <div class="sl-name">სიგრძე</div>
+          <input type="range" class="sl-track" id="slW" min="2.4" max="4.8" step="0.6" value="2.4" oninput="onDims(this,'W')">
+          <div class="sl-val" id="svW">2.4 მ</div>
+        </div>
+        <div class="sl-row">
+          <div class="sl-name">ქვედა გარნ.</div>
+          <input type="range" class="sl-track" id="slLH" min="0.80" max="0.90" step="0.01" value="0.85" oninput="onDims(this,'LH')">
+          <div class="sl-val" id="svLH">85 სმ</div>
+        </div>
+        <div class="sl-row">
+          <div class="sl-name">ზედა გარნ.</div>
+          <input type="range" class="sl-track" id="slUH" min="0.50" max="1.20" step="0.05" value="0.70" oninput="onDims(this,'UH')">
+          <div class="sl-val" id="svUH">70 სმ</div>
+        </div>
+        <div class="sl-row">
+          <div class="sl-name">სიღრმე</div>
+          <input type="range" class="sl-track" id="slD" min="0.4" max="0.8" step="0.05" value="0.6" oninput="onDims(this,'D')">
+          <div class="sl-val" id="svD">0.6 მ</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- CONTROLS -->
+    <div class="controls-panel">
+
+      <!-- ════ UPPER / LOWER CABINET SELECTOR ════ -->
+      <div class="ctrl-section">
+
+        <!-- Tab switcher -->
+        <div class="cab-tabs">
+          <button class="cab-tab on" id="tabLow" onclick="switchCabTab('low')">
+            <span class="ct-icon">⬇</span> ქვედა გარნიტური
+          </button>
+          <button class="cab-tab" id="tabUp" onclick="switchCabTab('up')">
+            <span class="ct-icon">⬆</span> ზედა გარნიტური
+          </button>
+        </div>
+
+        <!-- LOWER panel -->
+        <div class="cab-panel" id="panelLow">
+          <div class="ctrl-title" style="margin-bottom:10px;">მასალა</div>
+          <div class="mat-type-row" id="matTypeLow">
+            <div class="mt-btn on" data-t="lacquer" onclick="setMatType(this,'low')">მატ ლაქი</div>
+            <div class="mt-btn" data-t="gloss" onclick="setMatType(this,'low')">გლოსი</div>
+            <div class="mt-btn" data-t="wood" onclick="setMatType(this,'low')">ხე</div>
+          </div>
+          <div class="ctrl-title" style="margin-top:14px;margin-bottom:10px;">ფერი / ტექსტურა</div>
+          <div class="swatch-grid" id="swCab">
+            <div class="sw-wrap"><div class="sw" style="background:repeating-linear-gradient(90deg,#c0905a,#d4a870 6px,#b87840 12px)" data-c="#c49060" data-n="ღია მუხა" onclick="setCab(this)"></div><div class="sw-lbl">ღია მუხა</div></div>
+            <div class="sw-wrap"><div class="sw" style="background:linear-gradient(135deg,#bcbcb8,#989894)" data-c="#a8a8a4" data-n="ბეტონი" onclick="setCab(this)"></div><div class="sw-lbl">ბეტონი</div></div>
+            <div class="sw-wrap"><div class="sw" style="background:linear-gradient(135deg,#1c1c1c,#2a2622)" data-c="#1c1c1c" data-n="შავი მარმ." onclick="setCab(this)"></div><div class="sw-lbl">შავი მარმ.</div></div>
+            <div class="sw-wrap"><div class="sw" style="background:linear-gradient(135deg,#f0ede8,#e0dcd4)" data-c="#f0ede8" data-n="თეთრი მარმ." onclick="setCab(this)" class="on"></div><div class="sw-lbl">თეთრი მარმ.</div></div>
+            <div class="sw-wrap"><div class="sw" style="background:repeating-linear-gradient(90deg,#4a2e18,#5a3822 5px,#3a2010 10px)" data-c="#4a2e18" data-n="კაკალი" onclick="setCab(this)"></div><div class="sw-lbl">კაკალი</div></div>
+            <div class="sw-wrap"><div class="sw" style="background:linear-gradient(135deg,#1e1e1e,#0a0a0a)" data-c="#141414" data-n="მატ შავი" onclick="setCab(this)"></div><div class="sw-lbl">მატ შავი</div></div>
+          </div>
+            <!-- selected preview -->
+          <div class="cab-selected-preview" id="previewLow">
+            <div class="csp-swatch" id="cspSwatchLow"></div>
+            <div class="csp-info"><div class="csp-name" id="cspNameLow">თეთრი მარმ.</div><div class="csp-mat" id="cspMatLow">White Marble</div></div>
+          </div>
+        </div>
+
+        <!-- UPPER panel (hidden by default) -->
+        <div class="cab-panel hidden" id="panelUp">
+          <div class="ctrl-title" style="margin-bottom:10px;">მასალა</div>
+          <div class="mat-type-row" id="matTypeUp">
+            <div class="mt-btn" data-t="lacquer" onclick="setMatType(this,'up')">მატ ლაქი</div>
+            <div class="mt-btn" data-t="gloss" onclick="setMatType(this,'up')">გლოსი</div>
+            <div class="mt-btn on" data-t="wood" onclick="setMatType(this,'up')">ხე</div>
+          </div>
+          <div class="ctrl-title" style="margin-top:14px;margin-bottom:10px;">ფერი / ტექსტურა</div>
+          <div class="swatch-grid" id="swCabUp">
+            <div class="sw-wrap"><div class="sw" style="background:repeating-linear-gradient(90deg,#c0905a,#d4a870 6px,#b87840 12px)" data-c="#c49060" data-n="ღია მუხა" onclick="setCabUp(this)"></div><div class="sw-lbl">ღია მუხა</div></div>
+            <div class="sw-wrap"><div class="sw" style="background:linear-gradient(135deg,#bcbcb8,#989894)" data-c="#a8a8a4" data-n="ბეტონი" onclick="setCabUp(this)"></div><div class="sw-lbl">ბეტონი</div></div>
+            <div class="sw-wrap"><div class="sw" style="background:linear-gradient(135deg,#1c1c1c,#2a2622)" data-c="#1c1c1c" data-n="შავი მარმ." onclick="setCabUp(this)"></div><div class="sw-lbl">შავი მარმ.</div></div>
+            <div class="sw-wrap"><div class="sw" style="background:linear-gradient(135deg,#f0ede8,#e0dcd4)" data-c="#f0ede8" data-n="თეთრი მარმ." onclick="setCabUp(this)"></div><div class="sw-lbl">თეთრი მარმ.</div></div>
+            <div class="sw-wrap"><div class="sw on" style="background:repeating-linear-gradient(90deg,#4a2e18,#5a3822 5px,#3a2010 10px)" data-c="#4a2e18" data-n="კაკალი" onclick="setCabUp(this)"></div><div class="sw-lbl">კაკალი</div></div>
+            <div class="sw-wrap"><div class="sw" style="background:linear-gradient(135deg,#1e1e1e,#0a0a0a)" data-c="#141414" data-n="მატ შავი" onclick="setCabUp(this)"></div><div class="sw-lbl">მატ შავი</div></div>
+          </div><div class="sw-lbl">ნაც.მუხა</div></div>
+            <div class="cab-selected-preview" id="previewUp">
+            <div class="csp-swatch" id="cspSwatchUp"></div>
+            <div class="csp-info"><div class="csp-name" id="cspNameUp">თეთრი მარმ.</div><div class="csp-mat" id="cspMatUp">White Marble</div></div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Worktop -->
+      <div class="ctrl-section">
+        <div class="ctrl-title">სამუშაო მაგიდა</div>
+        <div class="wt-grid" id="wtGrid">
+          <div class="wt-btn on" data-c="#141414" data-n="მატ შავი" onclick="setWt(this)">
+            <div class="wt-bar" style="background:linear-gradient(135deg,#1e1e1e,#0a0a0a)"></div>მატ შავი
+          </div>
+          <div class="wt-btn" data-c="#1c1c1c" data-n="შავი მარმ." onclick="setWt(this)">
+            <div class="wt-bar" style="background:linear-gradient(135deg,#1c1c1c,#2a2622)"></div>შავი მარმ.
+          </div>
+          <div class="wt-btn" data-c="#a8a8a4" data-n="ბეტონი" onclick="setWt(this)">
+            <div class="wt-bar" style="background:linear-gradient(135deg,#bcbcb8,#989894)"></div>ბეტონი
+          </div>
+          <div class="wt-btn" data-c="#f0ede8" data-n="თეთრი მარმ." onclick="setWt(this)">
+            <div class="wt-bar" style="background:linear-gradient(135deg,#f0ede8,#e0dcd4)"></div>თეთრი მარმ.
+          </div>
+          <div class="wt-btn" data-c="#4a2e18" data-n="კაკალი" onclick="setWt(this)">
+            <div class="wt-bar" style="background:repeating-linear-gradient(90deg,#4a2e18,#5a3822 5px,#3a2010 10px)"></div>კაკალი
+          </div>კაკალი
+          </div>
+          <div class="wt-btn" data-c="#1e1e1e" data-n="შ.გრანიტი" onclick="setWt(this)">
+            <div class="wt-bar" style="background:linear-gradient(135deg,#2e2e2e,#0e0e0e)"></div>გრანიტი
+          </div>
+          <div class="wt-btn" data-c="#c0b8a8" data-n="მარმარ." onclick="setWt(this)">
+            <div class="wt-bar" style="background:linear-gradient(135deg,#d8d0c0,#b0a898)"></div>მარმარ.
+          </div>
+          <div class="wt-btn" data-c="#e0d8c8" data-n="კვარცი" onclick="setWt(this)">
+            <div class="wt-bar" style="background:linear-gradient(135deg,#ece4d4,#c8c0b0)"></div>კვარცი
+          </div>
+          <div class="wt-btn" data-c="#707060" data-n="ბეტონი" onclick="setWt(this)">
+            <div class="wt-bar" style="background:linear-gradient(135deg,#808070,#505040)"></div>ბეტონი
+          </div>
+          <div class="wt-btn" data-c="#3a5830" data-n="მწ.გრ." onclick="setWt(this)">
+            <div class="wt-bar" style="background:linear-gradient(135deg,#4a6840,#2a4820)"></div>მწ.გრ.
+          </div>
+        </div>
+      </div>
+
+      <!-- Handles -->
+      <div class="ctrl-section">
+        <div class="ctrl-title">სახელური</div>
+        <div class="handle-row" id="hRow">
+          <div class="h-btn on" data-s="bar" onclick="setHandle(this)">
+            <svg width="30" height="16" viewBox="0 0 30 16"><rect x="3" y="6" width="24" height="4" rx="2" fill="currentColor"/></svg>
+            რელსი
+          </div>
+          <div class="h-btn" data-s="knob" onclick="setHandle(this)">
+            <svg width="30" height="16" viewBox="0 0 30 16"><circle cx="15" cy="8" r="5" fill="currentColor"/></svg>
+            ღილი
+          </div>
+          <div class="h-btn" data-s="none" onclick="setHandle(this)">
+            <svg width="30" height="16" viewBox="0 0 30 16"><rect x="7" y="7" width="16" height="2" rx="1" fill="none" stroke="currentColor" stroke-width="1.5"/></svg>
+            გარეშე
+          </div>
+        </div>
+      </div>
+
+      <!-- Modules -->
+      <div class="ctrl-section">
+        <div class="ctrl-title">მოდულები</div>
+        <div class="mod-list">
+          
+          <div class="mod-item" onclick="togMod('hood')"><div class="mod-left"><span class="mod-icon">💨</span><span>გამწოვი</span></div><div class="tgl on" id="tg-hood"></div></div>
+          <div class="mod-item" onclick="togMod('sink')"><div class="mod-left"><span class="mod-icon">🚰</span><span>ჩ/ნიჟარა</span></div><div class="tgl on" id="tg-sink"></div></div>
+          <div class="mod-item" onclick="togMod('oven')"><div class="mod-left"><span class="mod-icon">🔥</span><span>ელ. ღუმელი</span></div><div class="tgl on" id="tg-oven"></div></div>
+          <div class="mod-item" onclick="togMod('light')"><div class="mod-left"><span class="mod-icon">💡</span><span>LED განათება</span></div><div class="tgl on" id="tg-light"></div></div>
+        </div>
+      </div>
+
+      <!-- Layout — მხოლოდ სწორი გარნიტური -->
+      <div class="ctrl-section" style="display:none;">
+        <div class="ctrl-title">განლაგება</div>
+        <div class="lay-grid" id="layGrid">
+          <div class="lay-btn on" data-l="straight" onclick="setLayout(this)">
+            <svg width="36" height="20" viewBox="0 0 36 20"><rect x="2" y="7" width="32" height="8" rx="2" fill="currentColor" opacity=".8"/></svg>
+            გარნიტური
+          </div>
+        </div>
+      </div>
+
+      <!-- Price per sqm -->
+      <div class="ctrl-section">
+        <div class="ctrl-title">ფასის კონფიგ. (₾/მ²)</div>
+        <div class="psq-box">
+          <div class="psq-title">ფასის პარამეტრები</div>
+          <div class="psq-row">
+            <div class="psq-lbl">ფასადი</div>
+            <input class="psq-inp" id="pFacade" type="number" value="850" min="0" max="9999" oninput="recalc()">
+            <div class="psq-unit">₾/მ²</div>
+          </div>
+          <div class="psq-row">
+            <div class="psq-lbl">სამ.ზედაპ.</div>
+            <input class="psq-inp" id="pTop" type="number" value="280" min="0" max="99999" oninput="recalc()">
+            <div class="psq-unit">₾/ც</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Price summary -->
+      <div class="ctrl-section">
+        <div class="price-total-box">
+          <div class="pb-row"><span class="pb-lbl">ფასადები</span><span class="pb-val" id="pbFacade">—</span></div>
+          <div class="pb-row"><span class="pb-lbl">სამ.ზედაპ. (1ც)</span><span class="pb-val" id="pbTop">—</span></div>
+          <div class="pb-div"></div>
+          <div class="price-total-row">
+            <div class="pt-lbl">სულ</div>
+            <div>
+              <span class="pt-val" id="ptTotal">—</span>
+              <span class="pt-cur">₾</span>
+            </div>
+          </div>
+          <div class="pt-sqm" id="ptSqm"></div>
+        </div>
+        <button class="btn-order" onclick="openModal('order')">🛒 შეუკვეთე ახლა</button>
+        <button class="btn-save" onclick="openModal('save')">💾 კონფიგ. შენახვა</button>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ MATERIALS ══════════════ -->
+
+
+<!-- ══════════════ PROCESS ══════════════ -->
+<section class="section" id="process">
+  <div class="section-header">
+    <div class="section-tag">პროცესი</div>
+    <h2 class="section-title">4 ნაბიჯი მეოცნებედან მფლობელამდე</h2>
+  </div>
+  <div class="process-grid">
+    <div class="process-step">
+      <div class="step-num">1</div>
+      <div class="step-icon">💻</div>
+      <div class="step-title">კონფიგურირება</div>
+      <div class="step-desc">ონლაინ კონფიგურატორში შეარჩიე ზომა, ფერი, მასალა. ნახე ფასი მყისიერად.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">2</div>
+      <div class="step-icon">📏</div>
+      <div class="step-title">გაზომვა</div>
+      <div class="step-desc">ჩვენი ოსტატი სახლში მოდის — ზუსტ ზომებს იღებს. უფასო. 2 დღეში.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">3</div>
+      <div class="step-icon">🏭</div>
+      <div class="step-title">წარმოება</div>
+      <div class="step-desc">ქართულ ქარხანაში, CNC მანქანებით. 3–4 კვირა — ევროპული სტანდარტით.</div>
+    </div>
+    <div class="process-step">
+      <div class="step-num">4</div>
+      <div class="step-icon">🎉</div>
+      <div class="step-title">მიწოდება</div>
+      <div class="step-desc">უფასო მიწოდება და მონტაჟი. ვმუშაობთ სანამ კმაყოფილი არ იქნები.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ TESTIMONIALS ══════════════ -->
+<section class="section">
+  <div class="section-header">
+    <div class="section-tag">შეფასებები</div>
+    <h2 class="section-title">კლიენტები ამბობენ</h2>
+  </div>
+  <div class="testimonials-grid">
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"კონფიგურატორი საოცარია — 20 წუთში ვიცოდი ზუსტი ფასი და დიზაინი. მონტაჟი 2 დღეში, ხარისხი შესანიშნავია!"</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:linear-gradient(135deg,var(--accent),var(--accent2));">ნ</div>
+        <div><div class="testi-name">ნინო გელაშვილი</div><div class="testi-city">📍 თბილისი, ვაკე</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">"ინდივიდუალური ზომა ზუსტად მოარგეს ჩვენს სივრცეს. ფერი ზუსტად ისეთია, როგორც კონფიგურატორში ვნახეთ."</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:linear-gradient(135deg,var(--green),#6aae8a);">გ</div>
+        <div><div class="testi-name">გიორგი ბერიძე</div><div class="testi-city">📍 თბილისი, საბურთალო</div></div>
+      </div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <p class="testi-text">" და პასუხისმგებლობა — ეს ჩვენთვის გადამწყვეტი იყო. ლეგი ნამდვილად სანდო კომპანიაა."</p>
+      <div class="testi-author">
+        <div class="testi-avatar" style="background:linear-gradient(135deg,var(--gold),#e8b63e);">მ</div>
+        <div><div class="testi-name">მარიამ კობახიძე</div><div class="testi-city">📍 ბათუმი</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ CTA BANNER ══════════════ -->
+<div class="cta-banner">
+  <h2>მზად ხარ შენი საოცნებო<br>სამზარეულოსთვის?</h2>
+  <p>დაიწყე 3D კონფიგურაცია ახლავე — უფასოდ. ნახე ფასი. გამოგვიგზავნე კონფიგურაცია.</p>
+  <button class="cta-btn-white" onclick="document.getElementById('configurator').scrollIntoView({behavior:'smooth'})">
+    🎨 კონფიგურატორი გახსნა
+  </button>
+</div>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer id="contact">
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo-icon">ლ</div>
+      <div style="font-size:20px;font-weight:700;color:white;margin-bottom:8px;">ლეგი ავეჯი</div>
+      <p>ინდივიდუალური დიზაინი · ქართული ხარისხი · 12 წლის გამოცდილება</p>
+      <div style="margin-top:20px;font-size:13px;">
+        📞 <a href="tel:+995322000000" style="color:var(--accent2);text-decoration:none;">+995 32 200-00-00</a><br>
+        ✉️ <a href="mailto:info@legi.ge" style="color:var(--accent2);text-decoration:none;">info@legi.ge</a><br>
+        📍 თბილისი, რუსთაველის გამზ. 15
+      </div>
+    </div>
+    <div>
+      <div class="footer-title">სერვისები</div>
+      <div class="footer-links">
+        <a href="#">სამზარეულო</a>
+        <a href="#">საძინებელი</a>
+        <a href="#">სასადილო</a>
+        <a href="#">ოფისი</a>
+        <a href="#">ბაღი</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-title">კომპანია</div>
+      <div class="footer-links">
+        <a href="#">ჩვენ შესახებ</a>
+        <a href="#">პორტფოლიო</a>
+        <a href="#">კარიერა</a>
+        <a href="#">პარტნიორები</a>
+        <a href="#">ბლოგი</a>
+      </div>
+    </div>
+    <div>
+      <div class="footer-title">დახმარება</div>
+      <div class="footer-links">
+        <a href="#">კონტაქტი</a>
+        <a href="#">გარანტია</a>
+        <a href="#">მიწოდება</a>
+        <a href="#">FAQ</a>
+        <a href="#">კონფიდ. პოლ.</a>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div>© 2024 ლეგი ავეჯი. ყველა უფლება დაცულია.</div>
+    <div class="social-links">
+      <a class="social-btn" href="#">f</a>
+      <a class="social-btn" href="#">in</a>
+      <a class="social-btn" href="#">📷</a>
+    </div>
+  </div>
+</footer>
+
+<!-- ══════════════ MODAL ══════════════ -->
+<div class="modal-overlay" id="modal" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <div class="modal-icon" id="modalIcon">🛒</div>
+    <div class="modal-title" id="modalTitle">შეკვეთა</div>
+    <div class="modal-sub" id="modalSub">შეავსე ფორმა — ჩვენი მენეჯერი 1 საათში დაგიკავშირდება.</div>
+    <div class="modal-config-info" id="modalConfigInfo">
+      <div class="mci-row"><span class="mci-lbl">კონფიგ. ზომა:</span><span class="mci-val" id="mciSize">—</span></div>
+      <div class="mci-row"><span class="mci-lbl">ფასადის ფერი:</span><span class="mci-val" id="mciColor">—</span></div>
+      <div class="mci-row"><span class="mci-lbl">სულ ღირებულება:</span><span class="mci-val" id="mciPrice" style="color:var(--accent);font-size:14px;">—</span></div>
+    </div>
+    <div class="modal-form">
+      <input class="modal-inp" type="text" placeholder="სახელი და გვარი" id="mName">
+      <input class="modal-inp" type="tel" placeholder="ტელეფონი" id="mPhone">
+      <input class="modal-inp" type="email" placeholder="ელ.ფოსტა" id="mEmail">
+      <textarea class="modal-inp" placeholder="შენიშვნა (სურვილისამებრ)" id="mNote" style="resize:vertical;min-height:80px;"></textarea>
+      <button class="modal-submit" id="modalSubmit" onclick="submitModal()">✅ გაგზავნა</button>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<!-- THREE.JS — ჩაიტვირთება, შემდეგ init() -->
+<script>
+function loadThree(cb){
+  if(window.THREE){ cb(); return; }
+  const s = document.createElement('script');
+  s.src = 'https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js';
+  s.crossOrigin = 'anonymous';
+  s.onload  = cb;
+  s.onerror = function(){
+    // fallback CDN
+    const s2 = document.createElement('script');
+    s2.src = 'https://unpkg.com/three@0.128.0/build/three.min.js';
+    s2.onload = cb;
+    s2.onerror = function(){ document.getElementById('canvasError').style.display='flex'; };
+    document.head.appendChild(s2);
+  };
+  document.head.appendChild(s);
+}
+</script>
+<script>
+loadThree(function(){
+/* ════════════════════════════════════════
+   STATE
+════════════════════════════════════════ */
+const S = {
+  cabColor:'#f0ede8', cabName:'თეთრი მარმ.',
+  wtColor:'#1c1c1c',  wtName:'შავი მარმ.',
+  handle:'bar', layout:'straight',
+  mods:{glass:true,hood:true,sink:true,oven:true,light:true},
+  W:2.4, H:2.1, D:0.6, LH:0.85, UH:0.70,
+  cabColorUp: '#f0ede8',  cabNameUp: 'თეთრი მარმ.',
+  matTypeLow: 'lacquer',  matTypeUp: 'lacquer',
+};
+
+/* ════════════════════════════════════════
+   THREE.JS SETUP — MAIN CONFIGURATOR
+════════════════════════════════════════ */
+function setupScene(canvasId, isHero=false) {
+  const canvas = document.getElementById(canvasId);
+  if(!canvas) return null;
+  const renderer = new THREE.WebGLRenderer({canvas, antialias:true, alpha:true});
+  renderer.setPixelRatio(window.devicePixelRatio);
+  renderer.shadowMap.enabled = true;
+  renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.4;
+
+  const scene = new THREE.Scene();
+  scene.background = new THREE.Color(isHero ? 0xfef3e8 : 0xf5ede0);
+  scene.fog = new THREE.Fog(isHero ? 0xfef3e8 : 0xf5ede0, 8, 18);
+
+  const camera = new THREE.PerspectiveCamera(42, 1, 0.1, 50);
+  camera.position.set(0, 1.4, 5.8);
+  camera.lookAt(0, 0.9, 0);
+
+  // Lights
+  const ambient = new THREE.AmbientLight(0xfff8f0, 0.8);
+  scene.add(ambient);
+  const sun = new THREE.DirectionalLight(0xffe8d0, 2.2);
+  sun.position.set(4, 6, 5);
+  sun.castShadow = true;
+  sun.shadow.mapSize.set(2048,2048);
+  ['left','right','top','bottom'].forEach((k,i)=>sun.shadow.camera[k]=[-4,4,4,-4][i]);
+  scene.add(sun);
+  const fill = new THREE.DirectionalLight(0xc8e0ff, 0.6);
+  fill.position.set(-3, 2, -2);
+  scene.add(fill);
+  const rim = new THREE.PointLight(0xffd080, 0.5, 8);
+  rim.position.set(0, 3, 0);
+  scene.add(rim);
+
+  // Floor
+  const floor = new THREE.Mesh(
+    new THREE.PlaneGeometry(16, 16),
+    new THREE.MeshStandardMaterial({color:0xe8ddd0,roughness:0.9})
+  );
+  floor.rotation.x = -Math.PI/2;
+  floor.receiveShadow = true;
+  scene.add(floor);
+  // Wall
+  const wall = new THREE.Mesh(
+    new THREE.PlaneGeometry(16,8),
+    new THREE.MeshStandardMaterial({color:0xf8f0e4,roughness:0.95})
+  );
+  wall.position.set(0,3,-2.8);
+  wall.receiveShadow = true;
+  scene.add(wall);
+
+  return {renderer, scene, camera, rim, ambient};
+}
+
+function hexN(hex){
+  if(!hex) return 0xccaa88;
+  const h = hex.replace('#','');
+  return parseInt(h, 16) || 0xccaa88;
+}
+function darker(hex, a){
+  if(!hex || hex.length < 4) return 0x888866;
+  const h = hex.startsWith('#') ? hex : '#'+hex;
+  const r = Math.max(0, parseInt(h.slice(1,3),16) - a);
+  const g = Math.max(0, parseInt(h.slice(3,5),16) - a);
+  const b = Math.max(0, parseInt(h.slice(5,7),16) - a);
+  return (r<<16)|(g<<8)|b;
+}
+
+function mkBox(w,h,d,color,r=0.55,m=0.05){
+  const mesh = new THREE.Mesh(
+    new THREE.BoxGeometry(w,h,d),
+    new THREE.MeshStandardMaterial({color:new THREE.Color(color),roughness:r,metalness:m})
+  );
+  mesh.castShadow = mesh.receiveShadow = true;
+  return mesh;
+}
+
+// ── Wood texture generator (procedural Canvas) ──
+const _woodCache = {};
+function getWoodTexture(hexColor){
+  if(_woodCache[hexColor]) return _woodCache[hexColor];
+  const sz=256, c=document.createElement('canvas'); c.width=sz; c.height=sz;
+  const ctx=c.getContext('2d');
+  const r=parseInt(hexColor.slice(1,3),16);
+  const g=parseInt(hexColor.slice(3,5),16);
+  const b=parseInt(hexColor.slice(5,7),16);
+  // base fill
+  ctx.fillStyle=hexColor; ctx.fillRect(0,0,sz,sz);
+  // wood grain lines
+  const numLines=22;
+  for(let i=0;i<numLines;i++){
+    const y=(i/numLines)*sz + Math.sin(i*1.3)*12;
+    const alpha=0.06+Math.random()*0.12;
+    const w2=Math.random()>0.5?1.5:3;
+    const dark=Math.random()>0.5;
+    ctx.strokeStyle=dark?`rgba(${Math.max(0,r-40)},${Math.max(0,g-35)},${Math.max(0,b-30)},${alpha})`:
+                          `rgba(${Math.min(255,r+30)},${Math.min(255,g+25)},${Math.min(255,b+20)},${alpha*0.7})`;
+    ctx.lineWidth=w2;
+    ctx.beginPath();
+    ctx.moveTo(0, y+Math.sin(0)*8);
+    for(let x2=0;x2<sz;x2+=6){
+      ctx.lineTo(x2, y+Math.sin(x2*0.04+i)*5+Math.sin(x2*0.012)*4);
+    }
+    ctx.stroke();
+  }
+  // subtle knot (random)
+  if(Math.random()>0.5){
+    const kx=sz*0.3+Math.random()*sz*0.4, ky=sz*0.2+Math.random()*sz*0.6;
+    const kg=ctx.createRadialGradient(kx,ky,2,kx,ky,24);
+    kg.addColorStop(0,`rgba(${Math.max(0,r-50)},${Math.max(0,g-45)},${Math.max(0,b-35)},0.18)`);
+    kg.addColorStop(1,'transparent');
+    ctx.fillStyle=kg; ctx.fillRect(0,0,sz,sz);
+  }
+  const tex=new THREE.CanvasTexture(c);
+  tex.wrapS=tex.wrapT=THREE.RepeatWrapping;
+  tex.repeat.set(1,2);
+  _woodCache[hexColor]=tex;
+  return tex;
+}
+
+// ── Material factory: lacquer / gloss / wood ──
+function mkMat(hexColor, matType){
+  const col=new THREE.Color(hexColor);
+  if(matType==='wood'){
+    return new THREE.MeshStandardMaterial({
+      map: getWoodTexture(hexColor),
+      color: col,
+      roughness: 0.72, metalness: 0.0
+    });
+  } else if(matType==='gloss'){
+    return new THREE.MeshStandardMaterial({
+      color: col, roughness: 0.04, metalness: 0.06,
+      envMapIntensity: 1.2
+    });
+  } else { // lacquer/matte
+    return new THREE.MeshStandardMaterial({
+      color: col, roughness: 0.88, metalness: 0.0
+    });
+  }
+}
+
+let kitchenGroup, mainLed, mainScene, mainAmbient;
+const mainSetup = setupScene('mainCanvas');
+if(mainSetup){
+  mainScene   = mainSetup.scene;
+  mainLed     = mainSetup.rim;
+  mainAmbient = mainSetup.ambient;
+  kitchenGroup = new THREE.Group();
+  mainScene.add(kitchenGroup);
+}
+
+// Under-cabinet LED point lights (warm, low, positioned below upper cabs)
+let ledUnderLights = [];
+
+function buildKitchen(){
+  if(!kitchenGroup) return;
+  try {
+  while(kitchenGroup.children.length) kitchenGroup.remove(kitchenGroup.children[0]);
+
+  const W=S.W, H=S.H, D=S.D;
+  const lH = S.LH;
+  const uH = S.UH;
+  const cc    = S.cabColor;                       // ქვედა ფასადი
+  const ccUp  = S.cabColorUp || S.cabColor;        // ზედა ფასადი
+  const wtc   = S.wtColor;
+  const cDark = darker(cc,28);
+  const cDarkUp = darker(ccUp,28);
+  const lY=lH/2;
+  const wtH=0.04, wtY=lH+wtH/2;
+  const gap=0.60;
+  const uY=lH+wtH+gap+uH/2;
+
+  // ══ UNIT COUNT — სრული სიგრძე = კარადები + ღუმელი ══
+  // n = სულ სექციები (კარადები + ღუმელი)
+  // cabN = კარადების რაოდენობა = n - 1
+  const UW     = 0.60;                              // 60სმ თითოეული სექცია
+  const n      = Math.max(4, Math.round(W / UW));   // სულ სექციები (min 4)
+  const cabN   = n - 1;                             // კარადები = n - 1
+  const uw     = UW;
+  const uuw    = UW;
+  const totalW = cabN * UW;                         // კარადების სრული სიგანე
+
+  // ══ SINK — snap to lower unit index 1 ══
+  const sinkSlot = Math.min(1, cabN - 1);
+  const sinkX    = -totalW/2 + UW * sinkSlot + UW/2;
+
+  // ══ HOB — snap to unit, min 60cm from sink ══
+  const MIN_DIST  = 0.61;
+  const sinkHalfW = 0.30;
+  const hobHalfW  = UW * 0.88 / 2;
+  const hobMinX   = sinkX + sinkHalfW + MIN_DIST + hobHalfW;
+  let hobSlot = Math.floor(cabN * 0.62);
+  while(hobSlot < cabN && (-totalW/2 + UW*hobSlot + UW/2) < hobMinX) hobSlot++;
+  hobSlot = Math.min(hobSlot, cabN - 1);
+  const hobX = -totalW/2 + UW * hobSlot + UW/2;
+
+  // ══ HOOD — same slot as hob ══
+  const actualHoodSlot = S.mods.hood ? hobSlot : -1;
+
+  // ══ UPPER SLOTS = cabN (კარადები, hood-ი ერთ-ერთს ცვლის) ══
+  const totalUpperSlots = cabN;
+
+  // ══════════════════════════════════════
+  // LOWER CABINETS
+  // ══════════════════════════════════════
+  for(let i=0;i<cabN;i++){
+    const x=-totalW/2+UW*i+UW/2;
+    const c=mkBox(uw-.014,lH,D,darker(cc,25));
+    c.position.set(x,lY,0); kitchenGroup.add(c);
+    const door=mkBox(uw-.028,lH-.028,.018,hexN(cc));
+    door.material = mkMat(cc, S.matTypeLow);
+    door.position.set(x,lY,D/2+.009); kitchenGroup.add(door);
+    const fr=mkBox(uw-.06,lH-.09,.005,cDark);
+    fr.position.set(x,lY,D/2+.022); kitchenGroup.add(fr);
+    // სახელური — კარის ზედა ნაწილში (78%)
+    if(S.handle!=='none') addHandle(x, lH*0.78, D/2+.024, uw);
+  }
+
+  // ══════════════════════════════════════
+  // WORKTOP
+  // ══════════════════════════════════════
+  const wt=mkBox(totalW+.05,wtH,D+.06,hexN(wtc));
+  wt.material.roughness=.12; wt.material.metalness=.10;
+  wt.position.set(0,wtY,.03); kitchenGroup.add(wt);
+
+  // ══════════════════════════════════════
+  // SINK
+  // ══════════════════════════════════════
+  if(S.mods.sink){
+    const b=mkBox(.6,.055,D*.68,0x111008);
+    b.material.metalness=.2;
+    b.position.set(sinkX, wtY+.004, .02); kitchenGroup.add(b);
+    const fa=mkBox(.014,.13,.014,0x999999);
+    fa.material.roughness=.15; fa.material.metalness=.9;
+    fa.position.set(sinkX+.1, wtY+.12, .02); kitchenGroup.add(fa);
+    const fh=mkBox(.11,.012,.012,0x999999);
+    fh.material.roughness=.15; fh.material.metalness=.9;
+    fh.position.set(sinkX+.05, wtY+.185, .02); kitchenGroup.add(fh);
+  }
+
+  // ══════════════════════════════════════
+  // UPPER CABINETS (hood occupies one slot)
+  // ══════════════════════════════════════
+  for(let i=0;i<totalUpperSlots;i++){
+    const x=-totalW/2+UW*i+UW/2;
+    // გამწოვი actualHoodSlot სლოტში
+    if(i===actualHoodSlot){
+    // ══════════════════════════════════════
+    // HOOD — კარადის სტილი:
+    //   ① ზედა ნაწილი — ძირითადი ფასადის ფერი
+    //   ② ქვედა 10სმ  — ლითონი (metallic)
+    //   ③ LED ზოლი ქვეშ
+    // ══════════════════════════════════════
+    const metalH = 0.05;                          // 5სმ ლითონის ზოლი
+    const hFullH = uH;                            // სრული სიმაღლე = ზედა კარადა
+    const hUpperH = hFullH - metalH;             // ზედა (ფასადის ფერი)
+    const hFrontZ = -D*0.15 + D*0.70/2;         // წინა კიდე (= ზედა კარადა)
+
+    // კარკასი (სიღრმე)
+    const hCorpus = mkBox(uuw-.014, hFullH, D*.70, darker(ccUp, 20));
+    hCorpus.position.set(x, uY, -D*.15);
+    kitchenGroup.add(hCorpus);
+
+    // ① ზედა ნაწილი — ფასადის ფერი
+    const hUpperDoor = mkBox(uuw-.028, hUpperH-.014, .018, hexN(ccUp));
+    hUpperDoor.material = mkMat(ccUp, S.matTypeUp);
+    hUpperDoor.position.set(x, uY + metalH/2, hFrontZ + .009);
+    kitchenGroup.add(hUpperDoor);
+    // კარის ჩარჩო / inset
+    const hUpperFrame = mkBox(uuw-.065, hUpperH-.07, .005, darker(ccUp, 30));
+    hUpperFrame.position.set(x, uY + metalH/2, hFrontZ + .020);
+    kitchenGroup.add(hUpperFrame);
+
+    // ② ქვედა 10სმ — ლითონი
+    const metalMat = new THREE.MeshStandardMaterial({
+      color: 0xb8b8b0, roughness: 0.12, metalness: 0.88
+    });
+    const hMetal = new THREE.Mesh(
+      new THREE.BoxGeometry(uuw-.028, metalH, .020), metalMat
+    );
+    hMetal.position.set(x, uY - hFullH/2 + metalH/2, hFrontZ + .010);
+    kitchenGroup.add(hMetal);
+
+    // ლითონის ქვედა ბეჭი (rim) — ოდნავ უფრო ფართო
+    const rimMetMat = new THREE.MeshStandardMaterial({color:0x999990, roughness:0.10, metalness:0.92});
+    const hRim = new THREE.Mesh(new THREE.BoxGeometry(uuw-.010, 0.012, D*.72+.014), rimMetMat);
+    hRim.position.set(x, uY - hFullH/2 - 0.006, -D*.15);
+    kitchenGroup.add(hRim);
+
+    // გასაქანი ფილტრი (grease filter texture on metal face)
+    const gfMat2 = new THREE.MeshStandardMaterial({color:0xaaaaaa, roughness:0.15, metalness:0.82});
+    for(let gf=0; gf<4; gf++){
+      const gbar = new THREE.Mesh(new THREE.BoxGeometry(uuw-.035, 0.006, 0.004), gfMat2);
+      gbar.position.set(x, uY - hFullH/2 + metalH*0.22 + gf*(metalH*0.18), hFrontZ + .022);
+      kitchenGroup.add(gbar);
+    }
+
+    // ③ LED ზოლი (ქვედა ბეჭის ქვეშ)
+    if(S.mods.light){
+      const ledMat = new THREE.MeshStandardMaterial({
+        color:0xffe890, emissive:0xffe890, emissiveIntensity:2.4, roughness:0.3
+      });
+      const led = new THREE.Mesh(new THREE.BoxGeometry(uuw*.75, 0.007, 0.010), ledMat);
+      led.position.set(x, uY - hFullH/2 - 0.014, hFrontZ - 0.020);
+      kitchenGroup.add(led);
+    }
+    continue;
+    }
+
+    // ყველა ზედა კარადა — ზუსტად ერთი და იგივე ფასადი
+    const uc=mkBox(uuw-.014,uH,D*.70,darker(ccUp,22));
+    uc.position.set(x,uY,-D*.15); kitchenGroup.add(uc);
+    const ud=mkBox(uuw-.028,uH-.028,.016,hexN(ccUp));
+    ud.material = mkMat(ccUp, S.matTypeUp);
+    ud.position.set(x,uY,-D*.15+D*.70/2+.008); kitchenGroup.add(ud);
+    const uf=mkBox(uuw-.06,uH-.09,.005,cDarkUp);
+    uf.position.set(x,uY,-D*.15+D*.70/2+.018); kitchenGroup.add(uf);
+    if(S.handle!=='none') addHandle(x,uY-uH*.38,-D*.15+D*.70/2+.02,uuw);
+  }
+
+  // ══════════════════════════════════════
+  // TALL UNIT — სიმაღლე = ზედა კარადების ტოპ კიდე
+  // tH იქნება ზუსტად uY+uH/2 (ზედა კარადების სათავე)
+  // ══════════════════════════════════════
+  const tW  = UW;               // tall unit = ზუსტად 60სმ (სხვა სექციებივით)
+  const tX  = totalW/2 + tW/2 + 0.02;
+  const tH  = uY + uH/2;          // ← გათანაბრება ზედა კარადების სიმაღლეზე
+  const tY  = tH / 2;
+
+  // კარკასი
+  const tc = mkBox(tW, tH, D, darker(cc, 22));
+  tc.position.set(tX, tY, 0);
+  kitchenGroup.add(tc);
+
+  if(S.mods.oven){
+    // ══════════════════════════════════════
+    // OVEN — tall unit-ის შუა ნაწილი
+    // ── განლაგება:
+    //   ① ზედა კარი  (სადაც worktop-ის დონის ზემოდ)
+    //   ② ღუმელი     (შუა — worktop-ის სიმაღლეზე)
+    //   ③ ქვედა კარი (პლინტუსის ზემოდ)
+    // ══════════════════════════════════════
+    const ovenH   = tH * 0.30;                  // ღუმელი = სიმაღლის 30%
+    const ovenYc  = tH * 0.50;                  // ← შუა: tH/2
+
+    // ① ზედა კარი (ღუმელის ზემოდ)
+    const upH  = tH - ovenYc - ovenH/2 - 0.01;
+    const upYc = ovenYc + ovenH/2 + 0.01 + upH/2;
+    const upDoor = mkBox(tW-.028, upH, .022, hexN(cc));
+    upDoor.material = mkMat(cc, S.matTypeLow);
+    upDoor.position.set(tX, upYc, D/2+.012); kitchenGroup.add(upDoor);
+    const upFrame = mkBox(tW-.065, upH-.055, .005, cDark);
+    upFrame.position.set(tX, upYc, D/2+.022); kitchenGroup.add(upFrame);
+    if(S.handle!=='none') addHandle(tX, upYc - upH*0.28, D/2+.026, tW*.68);
+
+    // ② ღუმელი — კარი
+    const ovenDoor = mkBox(tW-.028, ovenH, .022, hexN(cc));
+    ovenDoor.material = mkMat(cc, S.matTypeLow);
+    ovenDoor.position.set(tX, ovenYc, D/2+.012); kitchenGroup.add(ovenDoor);
+
+    // ღუმელის შავი მინა (ფანჯარა)
+    const oGlassMat = new THREE.MeshStandardMaterial({
+      color:0x060504, roughness:.05, metalness:.40,
+      emissive:0x1a0800, emissiveIntensity:.55
+    });
+    const oGlass = new THREE.Mesh(
+      new THREE.BoxGeometry(tW-.065, ovenH*.68, .010), oGlassMat
+    );
+    oGlass.position.set(tX, ovenYc, D/2+.028); kitchenGroup.add(oGlass);
+
+    // ღუმელის სახელური (ჰორიზონტალური, ზედა კიდეზე)
+    const oHandleMat = new THREE.MeshStandardMaterial({color:0xdddddd, roughness:.08, metalness:.95});
+    const oHandle = new THREE.Mesh(new THREE.BoxGeometry(tW*.68, .018, .018), oHandleMat);
+    oHandle.position.set(tX, ovenYc + ovenH*.40, D/2+.030); kitchenGroup.add(oHandle);
+    // handle end caps
+    [-1,1].forEach(side=>{
+      const cap = new THREE.Mesh(new THREE.BoxGeometry(.014,.028,.028), oHandleMat);
+      cap.position.set(tX + side*tW*.34, ovenYc + ovenH*.40, D/2+.030);
+      kitchenGroup.add(cap);
+    });
+
+    // კონტროლ ნოობი (3 ღილი ღუმელის ქვეშ)
+    const oKnobMat = new THREE.MeshStandardMaterial({color:0x999999, roughness:.12, metalness:.88});
+    const oKnobStrip = mkBox(tW-.028, ovenH*.14, .022, hexN(cc));
+    oKnobStrip.material = mkMat(cc, S.matTypeLow);
+    oKnobStrip.position.set(tX, ovenYc - ovenH*.46, D/2+.012); kitchenGroup.add(oKnobStrip);
+    for(let k=0;k<3;k++){
+      const kn = new THREE.Mesh(new THREE.CylinderGeometry(.016,.016,.020,12), oKnobMat);
+      kn.rotation.x = Math.PI/2;
+      kn.position.set(tX - tW*.20 + k*tW*.20, ovenYc - ovenH*.46, D/2+.028);
+      kitchenGroup.add(kn);
+    }
+
+    // ③ ქვედა კარი (ღუმელის ქვეშ) — plinth-ის ანალოგიური (0.08 ქვემოდ)
+    const plinthH = 0.08;
+    const dnBottom = plinthH;
+    const dnTop    = ovenYc - ovenH/2 - 0.01;
+    const dnH2     = dnTop - dnBottom;
+    const dnYc2    = dnBottom + dnH2/2;
+    if(dnH2 > 0.04){
+      const dnDoor = mkBox(tW-.028, dnH2, .022, hexN(cc));
+      dnDoor.material = mkMat(cc, S.matTypeLow);
+      dnDoor.position.set(tX, dnYc2, D/2+.012); kitchenGroup.add(dnDoor);
+      const dnFrame = mkBox(tW-.06, Math.max(dnH2-.045, 0.01), .005, cDark);
+      dnFrame.position.set(tX, dnYc2, D/2+.022); kitchenGroup.add(dnFrame);
+      if(S.handle!=='none') addHandle(tX, dnYc2 + dnH2*0.28, D/2+.026, tW*.68);
+    }
+    // tall unit plinth — ფასადის ფერი (იგივე როგორც ქვედა კარადების plinth)
+    const tPlinthMat = new THREE.MeshStandardMaterial({
+      color: new THREE.Color(S.cabColor), roughness: 0.65, metalness: 0.02
+    });
+    const tPlinth = new THREE.Mesh(new THREE.BoxGeometry(tW+.014, plinthH, D+.014), tPlinthMat);
+    tPlinth.position.set(tX, plinthH/2, 0); kitchenGroup.add(tPlinth);
+
+  } else {
+    // ── ღუმელი გამოთიშულია — სამი ერთგვაროვანი კარი ──
+    const dH3 = (tH - 0.12) / 3;
+    for(let di=0; di<3; di++){
+      const dYc = 0.06 + dH3*di + dH3/2;
+      const dd = mkBox(tW-.028, dH3-.01, .022, hexN(cc));
+      dd.material = mkMat(cc, S.matTypeLow);
+      dd.position.set(tX, dYc, D/2+.012); kitchenGroup.add(dd);
+      const ddf = mkBox(tW-.065, dH3-.06, .005, cDark);
+      ddf.position.set(tX, dYc, D/2+.022); kitchenGroup.add(ddf);
+      if(S.handle!=='none') addHandle(tX, dYc - dH3*0.25, D/2+.026, tW*.68);
+    }
+    // plinth (oven off branch)
+    const tPlinthMat2 = new THREE.MeshStandardMaterial({
+      color: new THREE.Color(S.cabColor), roughness: 0.65, metalness: 0.02
+    });
+    const tPlinth2 = new THREE.Mesh(new THREE.BoxGeometry(tW+.014, 0.08, D+.014), tPlinthMat2);
+    tPlinth2.position.set(tX, 0.04, 0); kitchenGroup.add(tPlinth2);
+  }
+
+  // ══════════════════════════════════════
+  // გაზქურა — worktop-ზე, გამწოვის პირდაპირ
+  // hobX უკვე გამოთვლილია ზემოდ (60სმ rule)
+  // ══════════════════════════════════════
+  const hobW    = uuw * 0.88;
+  const hobD    = D   * 0.78;
+  const hobY    = wtY + wtH/2 + 0.006;
+
+  // გაზქურის ჩარჩო
+  const hobFrame = mkBox(hobW, .012, hobD, 0x1e1c18);
+  hobFrame.material.roughness=.25; hobFrame.material.metalness=.7;
+  hobFrame.position.set(hobX, hobY, 0.02);
+  kitchenGroup.add(hobFrame);
+
+  // გაზქურის ზედაპირი (შავი ვიტროცერამიკა)
+  const hobSurf = mkBox(hobW-.02, .004, hobD-.02, 0x0a0908);
+  hobSurf.material.roughness=.05; hobSurf.material.metalness=.15;
+  hobSurf.position.set(hobX, hobY+.007, 0.02);
+  kitchenGroup.add(hobSurf);
+
+  // 4 საწვავი (ბარგელი) — ცირკულარული
+  const burnerMat  = new THREE.MeshStandardMaterial({color:0x2a2825, roughness:.3, metalness:.6});
+  const burnerRing = new THREE.MeshStandardMaterial({color:0x777060, roughness:.2, metalness:.7});
+  const burnerPos  = [
+    {ox:-.28, oz:-.26}, {ox: .28, oz:-.26},
+    {ox:-.28, oz: .26}, {ox: .28, oz: .26},
+  ];
+  burnerPos.forEach(({ox,oz})=>{
+    // გარე გვირგვინი
+    const outer = new THREE.Mesh(
+      new THREE.CylinderGeometry(hobW*.10, hobW*.10, .008, 24),
+      burnerRing
+    );
+    outer.position.set(hobX + ox*hobW, hobY+.009, 0.02 + oz*hobD);
+    kitchenGroup.add(outer);
+    // შიდა ჩაღრმება
+    const inner = new THREE.Mesh(
+      new THREE.CylinderGeometry(hobW*.065, hobW*.065, .006, 24),
+      burnerMat
+    );
+    inner.position.set(hobX + ox*hobW, hobY+.011, 0.02 + oz*hobD);
+    kitchenGroup.add(inner);
+    // ნაჯახი (grate cross)
+    for(let g=0;g<2;g++){
+      const grate = mkBox(hobW*.19, .004, .008, 0x333028);
+      grate.material.metalness=.8;
+      if(g===1) grate.rotation.y = Math.PI/2;
+      grate.position.set(hobX + ox*hobW, hobY+.013, 0.02 + oz*hobD);
+      kitchenGroup.add(grate);
+    }
+  });
+
+  // ღუნდები (ტუმბო) — წინა პანელი
+  const knobMat2 = new THREE.MeshStandardMaterial({color:0x555045, roughness:.2, metalness:.75});
+  [-1, -.33, .33, 1].forEach((kx, ki)=>{
+    const knob = new THREE.Mesh(new THREE.CylinderGeometry(.018,.016,.022,14), knobMat2);
+    knob.rotation.x = Math.PI/2;
+    knob.position.set(hobX + kx*hobW*.35, hobY+.005, 0.02 + hobD/2+.005);
+    kitchenGroup.add(knob);
+  });
+
+  // ══ ADAPTIVE BACKGROUND — საპირისპირო ავეჯის ფერისა ══
+  if(mainSetup){
+    const hex = S.cabColor || '#c49060';
+    const r = parseInt(hex.slice(1,3),16);
+    const g = parseInt(hex.slice(3,5),16);
+    const b = parseInt(hex.slice(5,7),16);
+    // სიკაშკაშე (luminance) 0–255
+    const lum = 0.299*r + 0.587*g + 0.114*b;
+    let bgHex;
+    if(lum > 180){
+      // ღია ავეჯი → მუქი ფონი
+      bgHex = 0x1a1612;
+    } else if(lum > 120){
+      // საშუალო ავეჯი → ნეიტრალური ღია ფონი
+      bgHex = 0xf0ece4;
+    } else {
+      // მუქი ავეჯი → ნათელი ფონი
+      bgHex = 0xf7f4ee;
+    }
+    mainSetup.scene.background = new THREE.Color(bgHex);
+    mainSetup.scene.fog = new THREE.Fog(bgHex, 8, 18);
+    // viewer-box background sync
+    const vb = document.querySelector('.viewer-top');
+    if(vb){
+      if(lum > 180){
+        vb.style.background = 'linear-gradient(145deg,#1a1612,#0e0c09)';
+      } else if(lum > 120){
+        vb.style.background = 'linear-gradient(145deg,#f5ede0,#ebe3d4)';
+      } else {
+        vb.style.background = 'linear-gradient(145deg,#f8f5ee,#eee8dc)';
+      }
+    }
+  }
+
+  // ══ LED UNDER-CABINET POINT LIGHTS ══
+  // გაასუფთავე ძველი
+  ledUnderLights.forEach(l => { if(mainScene) mainScene.remove(l); });
+  ledUnderLights = [];
+  if(S.mods.light && mainScene){
+    const lightY = lH + wtH + gap - 0.04;  // ზედა კარადების ქვეშ
+    const nLights = Math.max(2, Math.round(totalW / 0.8));
+    for(let li=0; li<nLights; li++){
+      const lx = -totalW/2 + (li+0.5)*(totalW/nLights) + (-(UW+0.02)/2);
+      const pl = new THREE.PointLight(0xffd070, 0.9, 1.8);
+      pl.position.set(lx, lightY, 0.1);
+      mainScene.add(pl);
+      ledUnderLights.push(pl);
+    }
+  }
+
+  // ══ AMBIENT DIM for LED mode ══
+  if(mainAmbient){
+    mainAmbient.intensity = S.mods.light ? 0.28 : 0.80;
+    mainSetup.renderer.toneMappingExposure = S.mods.light ? 0.7 : 1.4;
+  }
+
+  // Plinth
+  // plinth ფარავს ქვედა კარადებს (W სიგანე) + tall unit-ს (tW სიგანე)
+  const plW = W + tW + 0.04;           // სრული სიგანე კარადები + tall unit
+  const plX = (W - tW) / 2 * 0.0;     // ცენტრი = 0 (kitchenGroup offset)
+  // ფასადის ფერის ოდნავ მუქი ვარიანტი — როგორც tall unit ძირი
+  const plMat = new THREE.MeshStandardMaterial({
+    color: new THREE.Color(S.cabColor), roughness: 0.65, metalness: 0.02
+  });
+  // ქვედა კარადების plinth
+  const pl = new THREE.Mesh(new THREE.BoxGeometry(totalW+.04, .08, D+.02), plMat);
+  pl.position.set(0, .04, 0); kitchenGroup.add(pl);
+  pl.castShadow = true;
+
+  // ── ეკრანის შუაში ცენტრირება ──
+  // tall unit-ი W/2-ის მარჯვნივ დგას, ამიტომ მთელი სცენა მარჯვნივ გადაიხარება.
+  // kitchenGroup-ს X-ით ვწევთ მარცხნივ (tW+0.02)/2-ით
+  const centerOffset = -(tW + 0.02) / 2;
+  kitchenGroup.position.x = centerOffset;
+
+  } catch(err){ console.warn('buildKitchen error:', err); }
+  // sync showcase
+  try { buildShowcaseKitchen(); } catch(e){}
+}
+
+function addHandle(x,y,z,w){
+  const hm=new THREE.MeshStandardMaterial({color:0xbbbbbb,roughness:.12,metalness:.85});
+  if(S.handle==='bar'){
+    const h=new THREE.Mesh(new THREE.BoxGeometry(w*.55,.014,.014),hm);
+    h.position.set(x,y,z+.009); kitchenGroup.add(h);
+  } else if(S.handle==='knob'){
+    const h=new THREE.Mesh(new THREE.SphereGeometry(.012,8,8),hm);
+    h.position.set(x,y,z+.015); kitchenGroup.add(h);
+  }
+}
+
+/* ════════════════════════════════════════
+   HERO SCENE
+════════════════════════════════════════ */
+// iOS WebGL limit: max 2 contexts. heroCanvas is hidden on mobile, skip it.
+const isMobile = window.innerWidth <= 900;
+const heroSetup = isMobile ? null : setupScene('heroCanvas', true);
+let heroGroup = null;
+if(heroSetup){
+  heroGroup = new THREE.Group();
+  heroSetup.scene.add(heroGroup);
+  buildHeroKitchen();
+}
+
+const showcaseSetup = null; // iOS WebGL context limit — showcase uses CSS animation instead
+let showcaseGroup = null;
+
+function buildShowcaseKitchen(){
+  // CSS preview sync with configurator colors
+  const cc = S.cabColor || '#c49060';
+  const wt = S.wtColor  || '#5c3820';
+  document.querySelectorAll('.scp-upper:not(.scp-hood), .scp-lower, .scp-tall').forEach(el=>{
+    el.style.background = `linear-gradient(160deg, ${lightenHex(cc,12)}, ${cc})`;
+  });
+  const wtEl = document.querySelector('.scp-worktop');
+  const plEl = document.querySelector('.scp-plinth');
+  if(wtEl) wtEl.style.background = `linear-gradient(90deg,${lightenHex(wt,10)},${wt})`;
+  if(plEl) plEl.style.background = cc;
+}
+function lightenHex(hex,amt){
+  if(!hex||hex.length<4) return '#ccaa88';
+  const h=hex.startsWith('#')?hex:'#'+hex;
+  const r=Math.min(255,parseInt(h.slice(1,3),16)+amt);
+  const g=Math.min(255,parseInt(h.slice(3,5),16)+amt);
+  const b=Math.min(255,parseInt(h.slice(5,7),16)+amt);
+  return '#'+[r,g,b].map(v=>v.toString(16).padStart(2,'0')).join('');
+}
+function buildHeroKitchen(){
+  if(!heroGroup) return;
+  while(heroGroup.children.length) heroGroup.remove(heroGroup.children[0]);
+  const W=2.4,H=2.1,D=0.6,cc='#c49060',wtc='#5c3820';
+  const lH=H*.42,lY=lH/2,wtH=.04,wtY=lH+wtH/2,n=4,uw=W/n;
+  const heroN   = Math.max(4, Math.round(W/uw)); // სულ
+  const heroCabN = heroN - 1;                    // კარადები
+  for(let i=0;i<heroCabN;i++){
+    const x=-heroCabN*uw/2+uw*i+uw/2;
+    const c=mkBox(uw-.014,lH,D,darker(cc,25));
+    c.position.set(x,lY,0); heroGroup.add(c);
+    const d=mkBox(uw-.028,lH-.028,.018,hexN(cc));
+    d.material.roughness=.42;
+    d.position.set(x,lY,D/2+.009); heroGroup.add(d);
+    const h=new THREE.Mesh(new THREE.BoxGeometry(uw*.55,.014,.014),new THREE.MeshStandardMaterial({color:0xbbbbbb,roughness:.12,metalness:.85}));
+    h.position.set(x,lH*.44,D/2+.024); heroGroup.add(h);
+  }
+  const heroTotalW = heroCabN * uw;
+  const wt=mkBox(heroTotalW+.05,wtH,D+.06,hexN(wtc));
+  wt.material.roughness=.3; wt.material.metalness=.08;
+  wt.position.set(0,wtY,.03); heroGroup.add(wt);
+  // 60სმ gap ზედა კარადებამდე
+  const un=heroCabN,uuw_h=heroTotalW/un,uH=H*.38,uY=lH+wtH+0.60+uH/2;
+  for(let i=0;i<un;i++){
+    const x=-heroTotalW/2+uuw_h*i+uuw_h/2;
+    const uc=mkBox(uuw_h-.014,uH,D*.7,darker(cc,22));
+    uc.position.set(x,uY,-D*.15); heroGroup.add(uc);
+    const ud=mkBox(uuw_h-.028,uH-.028,.016,hexN(cc));
+    ud.material.roughness=.42;
+    ud.position.set(x,uY,-D*.15+D*.7/2+.008); heroGroup.add(ud);
+  }
+}
+
+/* ════════════════════════════════════════
+   ORBIT CONTROLS
+════════════════════════════════════════ */
+let drag=false,lmx=0,lmy=0,rotTheta=-.3,rotPhi=.28,camR=5.8;
+const CAM_TARGET=new THREE.Vector3(0,1,0);
+function updateCam(){
+  if(!mainSetup) return;
+  const x=camR*Math.sin(rotTheta)*Math.cos(rotPhi);
+  const y=camR*Math.sin(rotPhi)+1;
+  const z=camR*Math.cos(rotTheta)*Math.cos(rotPhi);
+  mainSetup.camera.position.set(x,y,z);
+  mainSetup.camera.lookAt(CAM_TARGET);
+}
+updateCam();
+const mc=document.getElementById('mainCanvas');
+if(mc){
+  mc.addEventListener('mousedown',e=>{drag=true;lmx=e.clientX;lmy=e.clientY;autoSpin=false;});
+  mc.addEventListener('touchstart',e=>{drag=true;lmx=e.touches[0].clientX;lmy=e.touches[0].clientY;autoSpin=false;},{passive:true});
+  window.addEventListener('mouseup',()=>drag=false);
+  window.addEventListener('touchend',()=>drag=false);
+  window.addEventListener('mousemove',e=>{if(!drag)return;rotTheta-=(e.clientX-lmx)*.008;rotPhi=Math.max(-.1,Math.min(.9,rotPhi-(e.clientY-lmy)*.007));lmx=e.clientX;lmy=e.clientY;updateCam();});
+  window.addEventListener('touchmove',e=>{if(!drag)return;rotTheta-=(e.touches[0].clientX-lmx)*.008;rotPhi=Math.max(-.1,Math.min(.9,rotPhi-(e.touches[0].clientY-lmy)*.007));lmx=e.touches[0].clientX;lmy=e.touches[0].clientY;updateCam();},{passive:true});
+  mc.addEventListener('wheel',e=>{camR=Math.max(2.5,Math.min(10,camR+e.deltaY*.005));updateCam();});
+}
+function nudgeY(d){rotTheta+=d*Math.PI/180;updateCam();}
+function nudgeX(d){rotPhi=Math.max(-.1,Math.min(.9,rotPhi-d*Math.PI/180));updateCam();}
+function resetView(){rotTheta=-.3;rotPhi=.28;camR=5.8;updateCam();}
+
+// Hero camera auto-spin
+let heroTheta=-.5, autoSpin=true, showcaseTheta=0.3;
+let t=0;
+function animate(){
+  requestAnimationFrame(animate);
+  t+=.012;
+  if(autoSpin&&mainSetup){rotTheta+=.003;updateCam();}
+  if(mainLed) mainLed.intensity=.5+Math.sin(t)*.04;
+  if(heroSetup){
+    heroTheta+=.005;
+    const hr=4.5;
+    heroSetup.camera.position.set(hr*Math.sin(heroTheta),1.5,hr*Math.cos(heroTheta));
+    heroSetup.camera.lookAt(0,.9,0);
+  }
+  if(showcaseSetup){
+    showcaseTheta+=.004;
+    const sr=5.2;
+    showcaseSetup.camera.position.set(sr*Math.sin(showcaseTheta),1.6,sr*Math.cos(showcaseTheta));
+    showcaseSetup.camera.lookAt(0,.9,0);
+  }
+  // resize both canvases safely
+  [
+    {setup:mainSetup,    wrapper:document.querySelector('.three-container')},
+    {setup:heroSetup,    wrapper:(function(){var e=document.getElementById('heroCanvas');return e?e.parentElement:null;})()},
+    {setup:showcaseSetup,wrapper:(function(){var e=document.getElementById('showcaseCanvas');return e?e.closest('.showcase-canvas-wrap'):null;})()}
+  ].forEach(({setup,wrapper})=>{
+    if(!setup || !wrapper) return;
+    const w = wrapper.clientWidth  || 300;
+    const h = wrapper.clientHeight || (wrapper.querySelector('canvas')||{clientHeight:480}).clientHeight;
+    if(w < 10 || h < 10) return;
+    try{
+      if(setup.renderer.domElement.width!==w || setup.renderer.domElement.height!==h){
+        setup.renderer.setSize(w, h);
+        setup.camera.aspect = w / h;
+        setup.camera.updateProjectionMatrix();
+      }
+      setup.renderer.render(setup.scene, setup.camera);
+    }catch(e){ /* ignore render errors */ }
+  });
+}
+animate();
+
+/* Slider gradient update */
+document.querySelectorAll('.sl-track').forEach(sl=>{
+  function upd(){const min=+sl.min,max=+sl.max,v=+sl.value;const p=((v-min)/(max-min)*100).toFixed(1);sl.style.setProperty('--pct',p+'%');}
+  sl.addEventListener('input',upd); upd();
+});
+
+/* ════════════════════════════════════════
+   CONTROLS
+════════════════════════════════════════ */
+function setCab(el){
+  document.querySelectorAll('#swCab .sw').forEach(s=>s.classList.remove('on'));
+  el.classList.add('on');
+  S.cabColor=el.dataset.c; S.cabName=el.dataset.n;
+  buildKitchen();
+  updateCabPreview();
+}
+function setWt(el){
+  document.querySelectorAll('#wtGrid .wt-btn').forEach(b=>b.classList.remove('on'));
+  el.classList.add('on');
+  S.wtColor=el.dataset.c; S.wtName=el.dataset.n;
+  // sync material grid
+  document.querySelectorAll('#matWorktopGrid .mat-card').forEach(c=>c.classList.remove('selected'));
+  recalc(); buildKitchen();
+}
+function setHandle(el){
+  document.querySelectorAll('#hRow .h-btn').forEach(b=>b.classList.remove('on'));
+  el.classList.add('on');
+  S.handle=el.dataset.s;
+  buildKitchen();
+}
+function togMod(m){
+  S.mods[m]=!S.mods[m];
+  document.getElementById('tg-'+m).classList.toggle('on',S.mods[m]);
+  recalc(); buildKitchen();
+}
+function setLayout(el){
+  document.querySelectorAll('#layGrid .lay-btn').forEach(b=>b.classList.remove('on'));
+  el.classList.add('on');
+  S.layout = 'straight';
+}
+function onDims(sl,k){
+  const v = parseFloat(sl.value);
+  S[k] = v;
+
+  // display text per dimension
+  if(k === 'W'){
+    // სრული სიგრძე = კარადები + ღუმელის სექცია (ყველა 60სმ)
+    const UW_const = 0.60;
+    const n_calc = Math.max(4, Math.round(v / UW_const));
+    const fullW = n_calc * UW_const;           // tall unit ჩართულია n-ში
+    document.getElementById('svW').textContent = v.toFixed(1)+' მ';
+    document.getElementById('ibW').textContent  = fullW.toFixed(1);
+  } else if(k === 'LH'){
+    const cm = Math.round(v*100);
+    document.getElementById('svLH').textContent = cm+' სმ';
+    document.getElementById('ibLH').textContent  = cm;
+  } else if(k === 'UH'){
+    const cm = Math.round(v*100);
+    document.getElementById('svUH').textContent = cm+' სმ';
+    document.getElementById('ibUH').textContent  = cm;
+  } else if(k === 'D'){
+    document.getElementById('svD').textContent = v.toFixed(2)+' მ';
+    document.getElementById('ibD').textContent  = v.toFixed(2);
+  } else if(k === 'H'){
+    // legacy — ignored now
+  }
+
+  // update S.H for price calc compat (total height)
+  S.H = S.LH + 0.04 + 0.60 + S.UH;
+
+  // update sqm display — პირდაპირ LH+UH-იდან
+  const UW_sq    = 0.60;
+  const n_sq     = Math.max(4, Math.round(S.W / UW_sq));
+  const fullW_sq = n_sq * UW_sq;
+  const calcH_sq = S.LH + 0.04 + 0.60 + S.UH;
+  const sqmVal   = (fullW_sq * calcH_sq).toFixed(2);
+  const sqmEl = document.getElementById('ibSqm');
+  if(sqmEl) sqmEl.textContent = sqmVal;
+
+  // update slider gradient
+  const min=+sl.min, max=+sl.max;
+  sl.style.setProperty('--pct',((v-min)/(max-min)*100).toFixed(1)+'%');
+
+  recalc();
+  buildKitchen();
+  document.getElementById('heroPrice').textContent = '₾ '+document.getElementById('ptTotal').textContent;
+}
+
+/* ════════════════════════════════════════
+   PRICE CALC
+════════════════════════════════════════ */
+function recalc(){
+  const _n    = Math.max(4, Math.round(S.W / 0.60));
+  const fullW = _n * 0.60;
+  // H პირდაპირ LH და UH-იდან — S.H-ზე დამოკიდებულება არ გვჭირდება
+  const calcH = S.LH + 0.04 + 0.60 + S.UH;
+  const sqm   = fullW * calcH;
+  const pF = +document.getElementById('pFacade').value || 0;
+
+  const fTot = Math.round(sqm * pF);
+  // სამ.ზედაპ. = 1 ც (flat price)
+  const tTot = +document.getElementById('pTop').value || 0;
+  // მოდულები
+  const grand   = fTot + tTot;
+  const perSqm  = sqm > 0 ? Math.round(grand / sqm) : 0;
+  const f = n => n.toLocaleString('ka-GE');
+
+  document.getElementById('pbFacade').textContent = f(fTot) + ' ₾';
+  document.getElementById('pbTop').textContent    = f(tTot) + ' ₾';
+  document.getElementById('ptTotal').textContent  = f(grand);
+  document.getElementById('ptSqm').textContent    = '≈ ' + f(perSqm) + ' ₾/მ² საშ.';
+  document.getElementById('heroPrice').textContent = '₾ ' + f(grand);
+}
+
+/* ════════════════════════════════════════
+   MODAL
+════════════════════════════════════════ */
+function openModal(type){
+  const modal=document.getElementById('modal');
+  if(type==='order'){
+    document.getElementById('modalIcon').textContent='🛒';
+    document.getElementById('modalTitle').textContent='შეკვეთა';
+    document.getElementById('modalSub').textContent='შეავსე ფორმა — ჩვენი მენეჯერი 1 საათში დაგიკავშირდება.';
+    document.getElementById('modalSubmit').textContent='✅ შეკვეთის გაგზავნა';
+  } else {
+    document.getElementById('modalIcon').textContent='💾';
+    document.getElementById('modalTitle').textContent='კონფიგ. შენახვა';
+    document.getElementById('modalSub').textContent='შეიყვანე ელ.ფოსტა — გამოგიგზავნით შენი კონფიგურაციის სრულ მონაცემებს.';
+    document.getElementById('modalSubmit').textContent='📧 გაგზავნა ელ.ფოსტაზე';
+  }
+  // Fill config info
+  document.getElementById('mciSize').textContent=`${S.W}მ × ქვ.${Math.round(S.LH*100)}სმ / ზდ.${Math.round(S.UH*100)}სმ × ${S.D}მ`;
+  document.getElementById('mciColor').textContent=S.cabName+' / '+S.wtName;
+  document.getElementById('mciPrice').textContent=document.getElementById('ptTotal').textContent+' ₾';
+  modal.classList.add('open');
+}
+function closeModal(){document.getElementById('modal').classList.remove('open');}
+function submitModal(){
+  var nm = document.getElementById('mName').value.trim();
+  var ph = document.getElementById('mPhone').value.trim();
+  var em = document.getElementById('mEmail') ? document.getElementById('mEmail').value.trim() : '';
+  var nt = document.getElementById('mNote') ? document.getElementById('mNote').value.trim() : '';
+
+  if(!nm || !ph){ showToast('⚠️ სახელი და ტელეფონი სავალდებულოა'); return; }
+
+  /* Collect configurator info */
+  var cfg = '';
+  try {
+    var sz = document.getElementById('mciSize') ? document.getElementById('mciSize').textContent : '';
+    var mc = document.getElementById('mciMatColor') ? document.getElementById('mciMatColor').textContent : '';
+    var mu = document.getElementById('mciMatUp')   ? document.getElementById('mciMatUp').textContent   : '';
+    var wt = document.getElementById('mciWt')      ? document.getElementById('mciWt').textContent      : '';
+    cfg = 'ზომა: '+sz+' | ქვედა: '+mc+' | ზედა: '+mu+' | ზედაპირი: '+wt;
+  } catch(x){ cfg = '—'; }
+
+  var btn = document.getElementById('modalSubmit');
+  if(btn){ btn.textContent = '⏳ იგზავნება...'; btn.disabled = true; }
+
+  function resetBtn(){ if(btn){ btn.textContent='✅ შეკვეთის გაგზავნა'; btn.disabled=false; } }
+
+  /* ── mailto fallback — always works, no server needed ── */
+  function sendMailto(){
+    var lines=['სახელი: '+nm,'ტელეფონი: '+ph,'ელფოსტა: '+(em||'-'),'შენიშვნა: '+(nt||'-'),'','კონფიგ: '+cfg];
+    var body=lines.join('\n');
+    window.open('mailto:smaker488@gmail.com?subject='+encodeURIComponent('ლეგი - შეკვეთა: '+nm)+'&body='+encodeURIComponent(body));
+    closeModal(); resetBtn();
+    showToast('\ud83d\udce7 ელფოსტის კლიენტი გაიხსნა!');
+  }
+
+  /* ── Web3Forms — free, works without registration ── */
+  /* To activate: go to https://web3forms.com, enter smaker488@gmail.com,
+     copy your access_key and replace below */
+  var WEB3_KEY = 'd6fe4fa1-122d-460a-9ef1-9d737c3cbe55';
+
+  if(WEB3_KEY !== 'YOUR_WEB3FORMS_KEY'){
+    fetch('https://api.web3forms.com/submit', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+      body: JSON.stringify({
+        access_key: WEB3_KEY,
+        subject:    'ლეგი — ახალი შეკვეთა: ' + nm,
+        from_name:  'ლეგი საიტი',
+        name:       nm,
+        phone:      ph,
+        email:      em || 'no-email@legi.ge',
+        note:       nt || '-',
+        config:     cfg
+      })
+    })
+    .then(function(r){ return r.json(); })
+    .then(function(d){
+      resetBtn();
+      if(d.success){ closeModal(); showToast('🎉 განაცხადი გაიგზავნა! მენეჯერი მოგმართავს.'); }
+      else { sendMailto(); }
+    })
+    .catch(function(){ resetBtn(); sendMailto(); });
+  } else {
+    /* No key set → use mailto directly */
+    resetBtn();
+    sendMailto();
+  }
+}
+
+/* ════════════════════════════════════════
+   MATERIAL SAMPLES — apply to configurator
+════════════════════════════════════════ */
+function applyMaterial(el, type, color, name){
+  if(type==='facade'){
+    // apply to whichever tab is active
+    var _tabLow=document.getElementById('tabLow'); var activeTab=(_tabLow&&_tabLow.classList.contains('on'))?'low':'up';
+    if(activeTab === 'up'){
+      S.cabColorUp = color; S.cabNameUp = name;
+      document.querySelectorAll('#swCabUp .sw').forEach(s => s.classList.toggle('on', s.dataset.c===color));
+    } else {
+      S.cabColor = color; S.cabName = name;
+      document.querySelectorAll('#swCab .sw').forEach(s => s.classList.toggle('on', s.dataset.c===color));
+    }
+    document.querySelectorAll('#matFacadeGrid .mat-card').forEach(c => c.classList.remove('selected'));
+    if(el) el.classList.add('selected');
+    buildKitchen(); updateCabPreview();
+    showToast('🎨 ' + name + ' — ფასადზე გამოყენებულია');
+  } else {
+    S.wtColor = color;
+    S.wtName  = name;
+    // sidebar worktop highlight
+    document.querySelectorAll('#wtGrid .wt-btn').forEach(b =>
+      b.classList.toggle('on', b.dataset.c === color)
+    );
+    // material grid highlight
+    document.querySelectorAll('#matWorktopGrid .mat-card').forEach(c => c.classList.remove('selected'));
+    if(el) el.classList.add('selected');
+    recalc();
+    buildKitchen();
+    showToast('🪨 ' + name + ' — სამ.მაგიდაზე გამოყენებულია');
+  }
+  // smooth scroll to configurator
+  setTimeout(() => {
+    const cfg = document.getElementById('configurator');
+    if(cfg) cfg.scrollIntoView({behavior:'smooth', block:'start'});
+  }, 350);
+}
+
+
+function showToast(msg){
+  const t=document.getElementById('toast');
+  t.textContent=msg;
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show'),3200);
+}
+
+/* ════════════════════════════════════════
+   INIT
+════════════════════════════════════════ */
+buildKitchen();
+recalc();
+updateCabPreview();
+// hide loading indicator
+const _ld = document.getElementById('canvasLoading');
+if(_ld) _ld.style.display = 'none';
+
+// expose UI functions to global scope (needed for onclick= attributes)
+function switchCabTab(zone){
+  // tab buttons
+  document.getElementById('tabLow').classList.toggle('on', zone==='low');
+  document.getElementById('tabUp').classList.toggle('on',  zone==='up');
+  // panels
+  document.getElementById('panelLow').classList.toggle('hidden', zone!=='low');
+  document.getElementById('panelUp').classList.toggle('hidden',  zone!=='up');
+}
+function updateCabPreview(){
+  try {
+  // Lower preview
+  const sl = document.querySelector('#swCab .sw.on');
+  const swL = document.getElementById('cspSwatchLow');
+  if(swL && sl){ swL.style.background = sl.style.background; }
+  const nmL = document.getElementById('cspNameLow');
+  if(nmL) nmL.textContent = S.cabName || S.cabColor;
+  const mtL = document.getElementById('cspMatLow');
+  const matNames = {lacquer:'მატ ლაქი', gloss:'გლოსი', wood:'ხე'};
+  if(mtL) mtL.textContent = matNames[S.matTypeLow] || S.matTypeLow;
+
+  // Upper preview
+  const su = document.querySelector('#swCabUp .sw.on');
+  const swU = document.getElementById('cspSwatchUp');
+  if(swU && su){ swU.style.background = su.style.background; }
+  const nmU = document.getElementById('cspNameUp');
+  if(nmU) nmU.textContent = S.cabNameUp || S.cabColorUp;
+  const mtU = document.getElementById('cspMatUp');
+  if(mtU) mtU.textContent = matNames[S.matTypeUp] || S.matTypeUp;
+  } catch(e){}
+}
+function setCabUp(el){
+  document.querySelectorAll('#swCabUp .sw').forEach(s=>s.classList.remove('on'));
+  el.classList.add('on');
+  S.cabColorUp=el.dataset.c; S.cabNameUp=el.dataset.n;
+  buildKitchen();
+  updateCabPreview();
+}
+function setMatType(el, zone){
+  const gridId = zone==='up' ? '#matTypeUp' : '#matTypeLow';
+  document.querySelectorAll(gridId+' .mt-btn').forEach(b=>b.classList.remove('on'));
+  el.classList.add('on');
+  if(zone==='up') S.matTypeUp = el.dataset.t;
+  else            S.matTypeLow = el.dataset.t;
+  buildKitchen();
+  updateCabPreview();
+}
+window.setCab       = setCab;
+window.setCabUp     = setCabUp;
+window.setMatType   = setMatType;
+window.setWt        = setWt;
+window.setHandle    = setHandle;
+window.togMod       = togMod;
+window.setLayout    = setLayout;
+window.onDims       = onDims;
+window.recalc       = recalc;
+window.nudgeY       = nudgeY;
+window.nudgeX       = nudgeX;
+window.resetView    = resetView;
+window.openModal    = openModal;
+window.closeModal   = closeModal;
+window.submitModal  = submitModal;
+window.applyMaterial= applyMaterial;
+window.showToast    = showToast;
+window.switchCabTab = switchCabTab;
+window.updateCabPreview = updateCabPreview;
+window.doOrder      = ()=>openModal('order');
+window.doSave       = ()=>openModal('save');
+
+/* ════ GOLD COIN DRAG ROTATION ════ */
+(function(){
+  const coin = document.getElementById('coinBody');
+  const wrap = document.getElementById('coinWrap');
+  const hint = document.getElementById('coinDragHint');
+  if(!coin || !wrap) return;
+
+  let autoY=0, userY=0, isDragging=false, lastX=0, autoOn=true, timer=null;
+
+  function apply(){
+    coin.style.animation='none';
+    coin.style.transform=`rotateY(${autoY+userY}deg) rotateX(8deg)`;
+  }
+  (function tick(){
+    if(!isDragging && autoOn){ autoY+=0.36; apply(); }
+    requestAnimationFrame(tick);
+  })();
+
+  function start(x){ isDragging=true; lastX=x; autoOn=false; if(hint) hint.classList.add('hidden'); }
+  function move(x){ if(!isDragging)return; userY+=(x-lastX)*0.55; lastX=x; apply(); }
+  function end(){ isDragging=false; clearTimeout(timer); timer=setTimeout(()=>{ autoY+=userY; userY=0; autoOn=true; },2000); }
+
+  wrap.addEventListener('mousedown', e=>{start(e.clientX);e.preventDefault();});
+  window.addEventListener('mousemove', e=>move(e.clientX));
+  window.addEventListener('mouseup', end);
+  wrap.addEventListener('touchstart', e=>start(e.touches[0].clientX),{passive:true});
+  window.addEventListener('touchmove', e=>{if(isDragging)move(e.touches[0].clientX);},{passive:true});
+  window.addEventListener('touchend', end);
+})();
+
+}); // end loadThree
+</script>
+</body>
+</html>
